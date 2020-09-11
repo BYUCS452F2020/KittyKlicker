@@ -19,4 +19,4 @@ Utah LLC!
 # Technical
 - plan is to use java with IntelliJ for the back end
 - SQLite database at first (like 240)
-- android app frond end with Android Studio (also like 240)
+- android app front end with Android Studio (also like 240)
