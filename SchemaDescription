@@ -1,0 +1,29 @@
+Schema:
+
+Users (UserID, Password, KittiesKlicked, KittiesPerKlick, TeamName)
+Foreign key TeamName references Teams
+Teams (TeamName, TotalKittiesKlicked)
+Powerups(PowerupName, Requirements, Benefits, UserID)
+Foreign key UserID references Users
+
+
+Users
+Users stores user information, including username, password, number of kittieklicks (score) they have, kitties they get per klick, and the name of the team they are on.
+UserID = the unique user ID/ username that the user makes when starting, Password = password user uses for signing in, KittiesKlicked = represents the score of the user, KittiesPerKlick = the amount of points the user gets per klick (this amount can change over time), TeamName = the name of the team that the user is on (if any)
+The users table rows each represent a user.
+Powerups uses the userID to store powerup data for each user, and Users references the teams table with a teamID.
+
+
+Teams
+Teams stores the number of kittieklicks (score) there are for each team.
+TeamName = the team name, required to be unique, TotalKittiesKlicked = number of kitties klicked collectively by the members of the team.
+The teams table rows each represent a team.
+This table stores the information for teams that users can be members of, and the users table references this table with the TeamName.
+
+Powerups
+Powerups stores the limited number of powerups available with the user who has them.
+PowerupName = unique powerup, Requirements = requirements to having/gaining the powerup, Benefits = the bonus(es) a user gets from having this powerup, UserID = user ID/ username to identify user who currently has that powerup
+The powerups table rows each represent a powerup.
+Users can have powerups, represented by the userID stored with each powerup.
+
+We think these tables are normalized....
