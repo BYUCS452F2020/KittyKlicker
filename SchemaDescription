@@ -21,9 +21,19 @@ The teams table rows each represent a team.
 This table stores the information for teams that users can be members of, and the users table references this table with the TeamName.
 
 Powerups
-Powerups stores the limited number of powerups available with the user who has them.
+Powerups stores the limited number of UNIQUE powerups available with the SINGLE user who has them.
 PowerupName = unique powerup, Requirements = requirements to having/gaining the powerup, Benefits = the bonus(es) a user gets from having this powerup, UserID = user ID/ username to identify user who currently has that powerup
 The powerups table rows each represent a powerup.
 Users can have powerups, represented by the userID stored with each powerup.
 
-We think these tables are normalized....
+Normalization:
+These tables are:
+1NF because:
+- there are no lists in any of the tables
+2NF because:
+- All of the attributes in each table rely on the key for that table
+3NF because:
+- The attributes don't rely on anything but the keys
+
+
+
