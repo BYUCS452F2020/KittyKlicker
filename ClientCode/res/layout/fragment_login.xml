@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragment.LoginFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="?android:listSeparatorTextViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp"
+                        android:layout_gravity="end"
+                        android:text="@string/server_host_login"
+                        android:textAlignment="textEnd" />
+
+                    <TextView
+                        style="?android:listSeparatorTextViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="@string/server_port_login"
+                        android:textAlignment="textEnd" />
+
+                    <TextView
+                        style="?android:listSeparatorTextViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp"
+                        android:layout_gravity="end"
+                        android:text="@string/username_login"
+                        android:textAlignment="textEnd" />
+
+                    <TextView
+                        style="?android:listSeparatorTextViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="@string/password_login"
+                        android:textAlignment="textEnd" />
+
+                    <TextView
+                        style="?android:listSeparatorTextViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp"
+                        android:layout_gravity="end"
+                        android:text="@string/first_name_login"
+                        android:textAlignment="textEnd" />
+
+                    <TextView
+                        style="?android:listSeparatorTextViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="@string/last_name_login"
+                        android:textAlignment="textEnd" />
+
+                    <TextView
+                        style="?android:listSeparatorTextViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp"
+                        android:layout_gravity="end"
+                        android:text="@string/email_login"
+                        android:textAlignment="textEnd" />
+
+                    <TextView
+                        style="?android:listSeparatorTextViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="@string/gender_login"
+                        android:textAlignment="textEnd" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <EditText
+                        android:id="@+id/server_host"
+                        android:layout_width="230dp"
+                        android:layout_height="wrap_content"
+                        android:hint="" />
+
+                    <EditText
+                        android:id="@+id/server_port"
+                        android:layout_width="230dp"
+                        android:layout_height="wrap_content"
+                        android:hint="" />
+
+                    <EditText
+                        android:id="@+id/username"
+                        android:layout_width="230dp"
+                        android:layout_height="wrap_content"
+                        android:hint="" />
+
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="230dp"
+                        android:layout_height="wrap_content"
+                        android:hint="" />
+
+                    <EditText
+                        android:id="@+id/firstname"
+                        android:layout_width="230dp"
+                        android:layout_height="wrap_content"
+                        android:hint="" />
+
+                    <EditText
+                        android:id="@+id/lastname"
+                        android:layout_width="230dp"
+                        android:layout_height="wrap_content"
+                        android:hint="" />
+
+                    <EditText
+                        android:id="@+id/email"
+                        android:layout_width="230dp"
+                        android:layout_height="wrap_content"
+                        android:hint="" />
+
+                    <RadioGroup
+                        android:id="@+id/genderRadio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/maleRadio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:text="@string/male_selected" />
+
+                        <RadioButton
+                            android:id="@+id/femaleRadio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:text="@string/female_selected" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/login_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sign_in" />
+
+                <Button
+                    android:id="@+id/register_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/register" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+</ScrollView>

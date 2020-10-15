@@ -1,0 +1,47 @@
+<resources>
+
+    <!-- General -->
+    <string name="app_name">Family Map</string>
+    <string name="activity_person">Family Map: Person Details</string>
+    <string name="activity_event">Family Map: Event Details</string>
+    <string name="activity_filter">Family Map: Filter</string>
+    <string name="activity_settings">Family Map: Settings</string>
+    <string name="activity_search">Family Map: Search</string>
+
+    <!-- Person activity -->
+    <string name="person_first_caption">FIRST NAME</string>
+    <string name="person_last_caption">LAST NAME</string>
+    <string name="person_gender_caption">GENDER</string>
+
+    <!-- Login -->
+    <string name="server_host_login">Server Host:</string>
+    <string name="server_port_login">Server Port:</string>
+    <string name="username_login">User Name:</string>
+    <string name="password_login">Password:</string>
+    <string name="first_name_login">First Name:</string>
+    <string name="last_name_login">Last Name:</string>
+    <string name="email_login">Email:</string>
+    <string name="gender_login">Gender:</string>
+    <string name="male_selected">Male</string>
+    <string name="female_selected">Female</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="register">REGISTER</string>
+
+    <!-- Settings -->
+    <string name="life_story_lines_title">Life Story Lines</string>
+    <string name="life_story_lines_caption">SHOW LIFE STORY LINES</string>
+    <string name="family_tree_lines_title">Family Tree Lines</string>
+    <string name="family_tree_lines_caption">SHOW FAMILY TREE LINES</string>
+    <string name="spouse_lines_title">Spouse Lines</string>
+    <string name="spouse_lines_caption">SHOW SPOUSE LINES</string>
+    <string name="map_type_title">Map Type</string>
+    <string name="map_type_caption">BACKGROUND DISPLAY ON MAP</string>
+    <string name="resync_title">Re-sync Data</string>
+    <string name="resync_caption">FROM FAMILYMAP SERVICE</string>
+    <string name="logout_title">Logout</string>
+    <string name="logout_caption">RETURNS TO LOGIN SCREEN</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
