@@ -1,7 +1,7 @@
 package response;
 
 /**
- * Created by jswense2 on 10/10/18.
+ * @author Jared Swensen
  */
 
 public class Response {

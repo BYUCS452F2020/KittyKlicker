@@ -1,25 +1,22 @@
 package response;
 
 /**
- * Created by jswense2 on 10/8/18.
+ * @author Jared Swensen
  */
 
 public class LoginResponse extends Response {
     private String authToken;
-    private String userName;
-    private String personID;
+    private String userID;
 
     /**
      * LoginResponse Constructor
      * @param authToken Non-empty auth token string
-     * @param userName User name passed in with request
-     * @param personID Non-empty string containing the Person ID of the user’s generated Person object
+     * @param userID User name passed in with request
      */
-    public LoginResponse(String authToken, String userName, String personID) {
+    public LoginResponse(String authToken, String userID) {
         super();
         this.authToken = authToken;
-        this.userName = userName;
-        this.personID = personID;
+        this.userID = userID;
     }
 
     public String getAuthToken() {
@@ -31,18 +28,10 @@ public class LoginResponse extends Response {
     }
 
     public String getUserName() {
-        return userName;
+        return userID;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPersonID() {
-        return personID;
-    }
-
-    public void setPersonID(String personID) {
-        this.personID = personID;
+    public void setUserName(String userID) {
+        this.userID = userID;
     }
 }

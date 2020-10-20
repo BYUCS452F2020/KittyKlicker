@@ -1,8 +1,7 @@
 package request;
 
 /**
- * Created by jswense2 on 10/8/18.
- * Errors: Request property missing or has invalid value, Internal server error
+ * @author Jared Swensen
  */
 
 public class LoginRequest {

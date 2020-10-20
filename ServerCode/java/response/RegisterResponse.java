@@ -1,25 +1,22 @@
 package response;
 
 /**
- * Created by jswense2 on 10/8/18.
+ * @author Jared Swensen
  */
 
 public class RegisterResponse extends Response {
     private String authToken;
-    private String userName;
-    private String personID;
+    private String userID;
 
     /**
      * RegisterResponse Constructor
      * @param authToken Non-empty auth token string
-     * @param userName User name passed in with request
-     * @param personID Non-empty string containing the Person ID of the user’s generated Person object
+     * @param userID User name passed in with request
      */
-    public RegisterResponse(String authToken, String userName, String personID) {
+    public RegisterResponse(String authToken, String userID) {
         super();
         this.authToken = authToken;
-        this.userName = userName;
-        this.personID = personID;
+        this.userID = userID;
     }
 
     public String getAuthToken() {
@@ -30,17 +27,11 @@ public class RegisterResponse extends Response {
         this.authToken = authToken;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getuserID() {
+        return userID;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setuserID(String userID) {
+        this.userID = userID;
     }
-
-    public String getPersonID() {
-        return personID;
-    }
-
-    public void setPersonID(String personID) { this.personID = personID; }
 }

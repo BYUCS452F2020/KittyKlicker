@@ -1,21 +1,23 @@
-package model;
+package response;
+
+import java.util.List;
 
 /**
- * User Data Structure
  * @author Jared Swensen
  */
-public class User {
+
+public class UserResponse extends Response {
     private String userID;
-    private String password;
     private int kittiesKlicked;
-    private int kittiesPerKlick;
     private String teamName;
 
-    public User(String userID, String password, int kittiesKlicked, int kittiesPerKlick, String teamName) {
+    /**
+     * response that sends data needed to display user info
+     * @param events the list of event objects
+     */
+    public UserResponse(String userID, int kittiesKlicked, String teamName) {
         this.userID = userID;
-        this.password = password;
         this.kittiesKlicked = kittiesKlicked;
-        this.kittiesPerKlick = kittiesPerKlick;
         this.teamName = teamName;
     }
 
@@ -27,28 +29,12 @@ public class User {
         this.userID = userID;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public int getKittiesKlicked() {
         return kittiesKlicked;
     }
 
     public void setKittiesKlicked(int kittiesKlicked) {
         this.kittiesKlicked = kittiesKlicked;
-    }
-
-    public int getKittiesPerKlick() {
-        return kittiesPerKlick;
-    }
-
-    public void setKittiesPerKlick(int kittiesPerKlick) {
-        this.kittiesPerKlick = kittiesPerKlick;
     }
 
     public String getTeamName() {
