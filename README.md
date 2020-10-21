@@ -2,7 +2,7 @@
 An app like Cookie Clicker but way more fun and with a Kitty (and with databases of course)!
 
 # Team
-Stephen Howard, Jared Swensen
+Stephen Howard, Jared Swensen, Talia Cook
 
 # SQL Database
 SQLite probably.
