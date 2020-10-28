@@ -7,7 +7,7 @@ package main.java.dao;
 import java.sql.*;
 
 public class DataBase {
-    private static final String dbname ="jdbc:sqlite:newdatabase.db";
+    private static final String dbname ="jdbc:sqlite:kitty.db";
     private static Connection conn;
     private static DataBase _dataBase;
 

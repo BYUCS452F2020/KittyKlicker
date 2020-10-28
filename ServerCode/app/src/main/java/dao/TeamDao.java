@@ -26,14 +26,14 @@ public class TeamDao {
      */
     public static Team find(String id) throws SQLException
     {
-        String query = "SELECT * FROM Teams WHERE teamID = ?";
+        String query = "SELECT * FROM Teams WHERE TeamID = ?";
         PreparedStatement stmt = db.getPreparedStatement(query);
         stmt.setString(1, id);
         Team team = null;
         ResultSet r = db.executeQuery(stmt);
         if (r.next())
         {
-            team = new Team(r.getString("teamID"), r.getString("Motto"), r.getInt("TotalKittiesKlicked"));
+            team = new Team(r.getString("TeamID"), r.getString("Motto"), r.getInt("TotalKittiesKlicked"));
         }
 
         return team;
