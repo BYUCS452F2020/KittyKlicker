@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.rhino.family_map.activity.MainActivity;
 import com.example.rhino.family_map.activity.PersonActivity;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -29,8 +28,6 @@ import java.util.Map;
 import java.util.Vector;
 
 import model.client.Client;
-import model.server.EventResponse;
-import model.server.PersonResponse;
 
 import static com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_BLUE;
 import static com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_CYAN;

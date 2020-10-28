@@ -12,15 +12,12 @@ import android.widget.EditText;
 
 import com.example.rhino.family_map.R;
 import com.example.rhino.family_map.task.EventAdapter;
-import com.example.rhino.family_map.task.PersonAdapter;
 import com.example.rhino.family_map.task.SearchAdapter;
 
 import java.util.Map;
 import java.util.Vector;
 
 import model.client.Client;
-import model.server.EventResponse;
-import model.server.PersonResponse;
 
 public class SearchActivity extends AppCompatActivity {
 

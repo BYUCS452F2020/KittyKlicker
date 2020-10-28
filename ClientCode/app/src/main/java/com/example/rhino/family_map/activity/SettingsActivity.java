@@ -17,14 +17,9 @@ import com.example.rhino.family_map.R;
 import com.example.rhino.family_map.task.GetInfoTask;
 import com.google.android.gms.maps.GoogleMap;
 
-import java.util.HashMap;
 import java.util.Vector;
 
 import model.client.Client;
-import model.server.EventResponse;
-import model.server.EventsResponse;
-import model.server.PersonResponse;
-import model.server.PersonsResponse;
 
 public class SettingsActivity extends AppCompatActivity implements GetInfoTask.GetInfoListener {
 

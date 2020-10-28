@@ -1,6 +1,5 @@
 package com.example.rhino.family_map.task;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.rhino.family_map.R;
@@ -18,7 +16,6 @@ import com.example.rhino.family_map.activity.SearchActivity;
 import java.util.Vector;
 
 import model.client.Client;
-import model.server.PersonResponse;
 
 /**
  * Created by jswense2 on 12/1/18.

@@ -4,22 +4,15 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.security.spec.ECField;
 
 import model.LoginRequest;
 import model.Login_RegisterResponse;
 import model.RegisterRequest;
 import model.client.Client;
-import model.server.EventsResponse;
-import model.server.PersonsResponse;
-import model.server.Response;
 
 public class Proxy {
 

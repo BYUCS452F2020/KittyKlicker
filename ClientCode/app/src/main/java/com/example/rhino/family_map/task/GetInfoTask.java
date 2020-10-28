@@ -5,9 +5,6 @@ import android.util.Pair;
 
 import com.example.rhino.family_map.proxy.Proxy;
 
-import model.server.EventsResponse;
-import model.server.PersonsResponse;
-
 /**
  * Created by jswense2 on 11/17/18.
  */
