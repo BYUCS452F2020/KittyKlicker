@@ -1,24 +1,15 @@
 package main.java.handler;
 
 import com.sun.net.httpserver.HttpExchange;
-
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.Reader;
-import java.io.Writer;
-
-import request.LoadRequest;
+import main.java.request.KlickRequest;
 import main.java.response.Response;
-import main.java.service.LoadService;
+import main.java.service.KlickService;
+
+import java.io.*;
 
 import static java.net.HttpURLConnection.HTTP_OK;
 
-/**
- * Created by jswense2 on 10/27/18.
- */
-
-public class LoadHandler extends Handler {
+public class KlickHandler extends Handler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
@@ -28,7 +19,10 @@ public class LoadHandler extends Handler {
         {
             if (exchange.getRequestMethod().toLowerCase().equals("post"))
             {
-                Response response = LoadService.load(request);
+                Reader in = new InputStreamReader(exchange.getRequestBody());
+                KlickRequest request = gson.fromJson(in, KlickRequest.class);
+
+                Response response = KlickService.klick(request);
 
                 exchange.sendResponseHeaders(HTTP_OK, 0);
 

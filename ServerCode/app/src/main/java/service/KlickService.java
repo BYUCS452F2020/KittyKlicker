@@ -1,6 +1,8 @@
 package main.java.service;
 
+import main.java.dao.AuthTokenDao;
 import main.java.dao.DataBase;
+import main.java.dao.UserDao;
 import main.java.request.KlickRequest;
 import main.java.response.KlickResponse;
 import main.java.response.Response;
@@ -32,8 +34,13 @@ public class KlickService {
             }
             db.openConnection();
 
-            //TODO: Handle klicks and return the new total
-            return new KlickResponse(10);
+            Integer newScore = UserDao.klick(AuthTokenDao.find(request.getAuth()).getUsername());
+
+            if (newScore == null) {
+                return new Response("User not found");
+            }
+
+            return new KlickResponse(newScore);
         }
         catch (SQLException e)
         {

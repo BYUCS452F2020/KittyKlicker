@@ -41,6 +41,29 @@ public class UserDao {
     }
 
     /**
+     * check to see if the given user id exists
+     * if they do, update their klick score by one klick
+     *
+     * @param id the user id
+     * @return the new total score
+     */
+    public static Integer klick(String id) throws SQLException
+    {
+        User user = find(id);
+
+        if (user != null) {
+            String update = "UPDATE Users SET KittiesKlicked = ? WHERE UserID = ?";
+            PreparedStatement stmt = db.getPreparedStatement(update);
+            int newScore = user.getKittiesKlicked() + user.getKittiesPerKlick();
+            stmt.setInt(1, newScore);
+            db.executeUpdate(stmt);
+            return newScore;
+        }
+
+        return null;
+    }
+
+    /**
      * return all the users
      * @return a list of all users
      */
