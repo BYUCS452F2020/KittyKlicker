@@ -14,8 +14,6 @@ import java.util.Vector;
 
 import model.LoginRequest;
 import model.RegisterRequest;
-import model.server.EventResponse;
-import model.server.PersonResponse;
 
 public class KittyClient {
 
