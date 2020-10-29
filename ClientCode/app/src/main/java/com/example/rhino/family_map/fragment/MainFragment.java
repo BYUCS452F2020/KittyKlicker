@@ -19,6 +19,7 @@ import java.util.Map;
 import java.util.Vector;
 
 import model.client.Client;
+import model.client.KittyClient;
 import model.server.EventResponse;
 import model.server.PersonResponse;
 
@@ -30,7 +31,7 @@ public class MainFragment extends Fragment {
     private TextView score;
     private TextView kittyPower;
     private TextView powerups;
-    private Client client;
+    private KittyClient client;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -38,12 +39,12 @@ public class MainFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         setHasOptionsMenu(false);
-        client = Client.getClient();
+        client = KittyClient.getClient();
 
         username = view.findViewById(R.id.kitty_user);
-//        username.setText(getUsername());
+        username.setText(client.getUserID());
         teamName = view.findViewById(R.id.team);
-//        teamName.setText(getTeamName());
+        teamName.setText(client.getTeamName());
         grumpyCat = view.findViewById(R.id.kitty_image);
         grumpyCat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,11 +53,11 @@ public class MainFragment extends Fragment {
             }
         });
         score = view.findViewById(R.id.score);
-//        score.setText(getScore());
+        score.setText(client.getKittiesKlicked());
         kittyPower = view.findViewById(R.id.kitty_power);
-//        kittyPower.setText(getPower());
+        kittyPower.setText(client.getKittyPower());
         powerups = view.findViewById(R.id.powerups);
-//        powerups.setText(getPowerups());
+//        powerups.setText(client.getPowerups());
 
         return view;
     }
