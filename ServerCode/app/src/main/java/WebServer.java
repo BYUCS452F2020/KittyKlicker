@@ -1,18 +1,11 @@
-
-import java.net.InetSocketAddress;
-
-import com.sun.net.httpserver.*;
+package main.java;
 
 import com.google.gson.Gson;
-import java.io.*;
+import com.sun.net.httpserver.HttpServer;
+import main.java.handler.*;
 
-import main.java.handler.ClearHandler;
-import handler.EventHandler;
-import handler.FillHandler;
-import main.java.handler.LoginHandler;
-import handler.PersonHandler;
-import main.java.handler.RegisterHandler;
-import main.java.handler.RootHandler;
+import java.io.IOException;
+import java.net.InetSocketAddress;
 
 
 /**
@@ -61,7 +54,7 @@ public class WebServer {
 
         server.createContext("/", new RootHandler());
 
-        server.createContext("/user/register", new RegisterHandler());
+        //server.createContext("/user/register", new RegisterHandler());
         server.createContext("/user/login", new LoginHandler());
         server.createContext("/clear", new ClearHandler());
         server.createContext("/klick", new KlickHandler());

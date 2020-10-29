@@ -5,6 +5,11 @@ import java.util.List;
 
 import model.server.AuthToken;
 
+<<<<<<< HEAD
+=======
+import model.LoginRequest;
+import model.RegisterRequest;
+>>>>>>> 6d499f874322db750f64cfe45925dd5bf4b6ac41
 
 public class KittyClient {
 

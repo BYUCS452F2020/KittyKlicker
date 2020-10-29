@@ -1,15 +1,15 @@
 package main.java.service;
 
-import java.sql.SQLException;
-import java.util.UUID;
-
-import dao.AuthTokenDao;
+import main.java.dao.AuthTokenDao;
 import main.java.dao.DataBase;
 import main.java.model.AuthToken;
 
+import java.sql.SQLException;
+import java.util.UUID;
+
 public class AuthService
 {
-    private static DataBase db = new DataBase();
+    private static DataBase db = DataBase.getInstance();
 
     public AuthService()
     {
