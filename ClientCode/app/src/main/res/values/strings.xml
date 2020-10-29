@@ -1,5 +1,13 @@
 <resources>
 
+    <!-- KittyKlicker -->
+    <string name="kitty_klicker">KittyKlicker!</string>
+    <string name="score">Score</string>
+    <string name="kitty_power">KittyPower</string>
+    <string name="username">Username</string>
+    <string name="team">Team</string>
+    <string name="powerups">Powerups</string>
+    
     <!-- General -->
     <string name="app_name">Family Map</string>
     <string name="activity_person">Family Map: Person Details</string>
