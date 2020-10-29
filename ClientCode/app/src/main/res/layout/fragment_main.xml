@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/kitty_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+
+            android:textSize="24sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textAlignment="center"
+            android:text="@string/username"
+            />
+
+        <TextView
+            android:id="@+id/team"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+
+            android:textSize="24sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textAlignment="center"
+            android:text="@string/team"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="48sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAlignment="center"
+        android:text="@string/kitty_klicker"
+        android:layout_marginTop="36dp"
+        />
+
+    <ImageView
+        android:id="@+id/kitty_image"
+        android:contentDescription="@string/kitty_klicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/kitty"
+        />
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAlignment="center"
+        android:text="@string/score"
+        android:layout_marginTop="24dp"
+        />
+
+    <TextView
+        android:id="@+id/kitty_power"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAlignment="center"
+        android:text="@string/kitty_power"
+        android:layout_marginTop="18dp"
+        />
+
+    <TextView
+        android:id="@+id/powerups"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAlignment="center"
+        android:text="@string/powerups"
+        android:layout_marginTop="18dp"
+        />
+
+</LinearLayout>
