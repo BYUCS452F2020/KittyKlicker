@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,21 +13,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.rhino.family_map.activity.MainActivity;
-import com.example.rhino.family_map.task.GetInfoTask;
 import com.example.rhino.family_map.task.LoginTask;
 import com.example.rhino.family_map.R;
 import com.example.rhino.family_map.task.RegisterTask;
 
-import model.LoginRequest;
-import model.Login_RegisterResponse;
-import model.RegisterRequest;
-import model.client.Client;
+import model.client.KittyClient;
+import model.request.LoginRequest;
+import model.request.RegisterRequest;
+import model.response.Login_RegisterResponse;
 
 public class LoginFragment
         extends Fragment
         implements LoginTask.LoginListener,
-        GetInfoTask.GetInfoListener,
         RegisterTask.RegisterListener
 {
 
@@ -42,7 +38,7 @@ public class LoginFragment
     private LoginRequest loginRequest;
     private RegisterRequest registerRequest;
 
-    private Client client;
+    private KittyClient client;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,7 +46,7 @@ public class LoginFragment
         setHasOptionsMenu(false);
         loginRequest = new LoginRequest(null,null);
         registerRequest = new RegisterRequest(null,null,null);
-        client = Client.getClient();
+        client = KittyClient.getClient();
     }
 
     @Override
@@ -107,7 +103,7 @@ public class LoginFragment
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                registerRequest.setTeam(s.toString());
+                registerRequest.setTeamName(s.toString());
                 updateButtons();
             }
 
@@ -122,7 +118,6 @@ public class LoginFragment
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                client.setLoginRequest(loginRequest);
                 loginClicked();
             }
         });
@@ -132,7 +127,6 @@ public class LoginFragment
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                client.setRegisterRequest(registerRequest);
                 registerClicked();
             }
         });
@@ -149,10 +143,14 @@ public class LoginFragment
         }
         else
         {
-            client.setAuth(response.getAuthToken());
-            client.setPersonID(response.getPersonID());
-            GetInfoTask getInfoTask = new GetInfoTask(this);
-            getInfoTask.execute(response.getAuthToken());
+            client.setAuthToken(response.getAuthToken());
+            client.setUserID(response.getUserID());
+            client.setUserID(response.getUserID());
+            client.setKittiesKlicked(response.getKittiesKlicked());
+            client.setKittyPower(response.getKittyPower());
+            client.setPowerups(response.getPowerups());
+            client.setTeamName(response.getTeamName());
+//todo: figure out what else you need to do here
         }
     }
 
@@ -184,7 +182,7 @@ public class LoginFragment
 
     private boolean updateRegister()
     {
-        if (registerRequest.getTeam() == null || registerRequest.getTeam().isEmpty())
+        if (registerRequest.getTeamName() == null || registerRequest.getTeamName().isEmpty())
             return false;
         return true;
     }
@@ -210,9 +208,4 @@ public class LoginFragment
         }
     }
 
-
-    @Override
-    public void onGetInfoComplete(Pair<PersonsResponse, EventsResponse> response) {
-
-    }
 }

@@ -2,6 +2,7 @@ package model.server;
 
 /**
  * AuthToken Data Structure
+ * @author Jared Swensen
  */
 public class AuthToken {
     private String username;

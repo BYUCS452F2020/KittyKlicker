@@ -1,34 +1,33 @@
 package model.client;
 
-import android.util.Pair;
-
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.Polyline;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Vector;
+import java.util.List;
 
-import model.LoginRequest;
-import model.RegisterRequest;
-import model.server.EventResponse;
-import model.server.PersonResponse;
+import model.server.AuthToken;
+
 
 public class KittyClient {
 
     private static KittyClient client;
 
-    private String host;
-    private String port;
+    private String host;//todo: set these to whatever your home host/port are
+    private String port;// these will NOT be set up so that the user can enter them in
 
     private String userID;
+    private String authToken;
     private String teamName;
     private int kittiesKlicked;
     private int kittyPower;
-    private ArrayList<String> powerups;
+    private List<String> powerups;
+
+    private KittyClient() {
+        userID = null;
+        authToken = null;
+        teamName = null;
+        kittiesKlicked = 0;
+        kittyPower = 0;//todo: check that this is correct for starting
+        powerups = new ArrayList<String>();
+    }
 
     public static KittyClient getClient() {
         if (client == null)
@@ -36,20 +35,21 @@ public class KittyClient {
         return client;
     }
 
+    public void clear() {
+        userID = null;
+        authToken = null;
+        teamName = null;
+        kittiesKlicked = 0;
+        kittyPower = 0;//todo: check that this is correct for starting
+        powerups = new ArrayList<String>();
+    }
+
     public String getHost() {
         return host;
     }
 
-    public void setHost(String host) {
-        this.host = host;
-    }
-
     public String getPort() {
         return port;
-    }
-
-    public void setPort(String port) {
-        this.port = port;
     }
 
     public String getUserID() {
@@ -58,6 +58,14 @@ public class KittyClient {
 
     public void setUserID(String userID) {
         this.userID = userID;
+    }
+
+    public String getAuthToken() {
+        return authToken;
+    }
+
+    public void setAuthToken(String authToken) {
+        this.authToken = authToken;
     }
 
     public String getTeamName() {
@@ -84,11 +92,11 @@ public class KittyClient {
         this.kittyPower = kittyPower;
     }
 
-    public ArrayList<String> getPowerups() {
+    public List<String> getPowerups() {
         return powerups;
     }
 
-    public void setPowerups(ArrayList<String> powerups) {
+    public void setPowerups(List<String> powerups) {
         this.powerups = powerups;
     }
 }

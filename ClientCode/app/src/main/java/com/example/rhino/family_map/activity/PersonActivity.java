@@ -16,8 +16,6 @@ import com.example.rhino.family_map.task.EventAdapter;
 
 import java.util.Vector;
 
-import model.client.Client;
-
 public class PersonActivity extends AppCompatActivity {
 
     private Client client;

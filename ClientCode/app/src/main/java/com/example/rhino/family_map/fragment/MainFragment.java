@@ -1,26 +1,16 @@
 package com.example.rhino.family_map.fragment;
 
-import android.content.Intent;
-import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.rhino.family_map.activity.MainActivity;
-import com.example.rhino.family_map.activity.PersonActivity;
 import com.example.rhino.family_map.R;
 
-import java.util.Map;
-import java.util.Vector;
-
-import model.client.Client;
-import model.server.EventResponse;
-import model.server.PersonResponse;
+import model.client.KittyClient;
 
 public class MainFragment extends Fragment {
 
@@ -30,7 +20,7 @@ public class MainFragment extends Fragment {
     private TextView score;
     private TextView kittyPower;
     private TextView powerups;
-    private Client client;
+    private KittyClient client;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -38,7 +28,7 @@ public class MainFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         setHasOptionsMenu(false);
-        client = Client.getClient();
+        client = KittyClient.getClient();
 
         username = view.findViewById(R.id.kitty_user);
 //        username.setText(getUsername());

@@ -9,10 +9,10 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import model.LoginRequest;
-import model.Login_RegisterResponse;
-import model.RegisterRequest;
-import model.client.Client;
+import model.client.KittyClient;
+import model.request.LoginRequest;
+import model.request.RegisterRequest;
+import model.response.Login_RegisterResponse;
 
 public class Proxy {
 
@@ -22,7 +22,7 @@ public class Proxy {
     {
         try
         {
-            URL server = new URL("http://" + Client.getClient().getHost() + ":" + Client.getClient().getPort() + "/user/login");
+            URL server = new URL("http://" + KittyClient.getClient().getHost() + ":" + KittyClient.getClient().getPort() + "/user/login");
             HttpURLConnection connection = (HttpURLConnection) server.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
@@ -55,7 +55,7 @@ public class Proxy {
     {
         try
         {
-            URL server = new URL("http://" + Client.getClient().getHost() + ":" + Client.getClient().getPort() + "/user/register");
+            URL server = new URL("http://" + KittyClient.getClient().getHost() + ":" + KittyClient.getClient().getPort() + "/user/register");
             HttpURLConnection connection = (HttpURLConnection) server.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
@@ -81,58 +81,6 @@ public class Proxy {
             return new Login_RegisterResponse(e.getMessage());
         }
 
-        return null;
-    }
-
-    public static PersonsResponse GetPerson(String auth)
-    {
-        try
-        {
-            URL server = new URL("http://" + Client.getClient().getHost() + ":" + Client.getClient().getPort() + "/person");
-            HttpURLConnection connection = (HttpURLConnection) server.openConnection();
-            connection.setRequestMethod("GET");
-            connection.setRequestProperty("Authorization", auth);
-            connection.connect();
-
-            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK)
-            {
-                InputStreamReader responseBody = new InputStreamReader(connection.getInputStream());
-
-                // Read response body
-                PersonsResponse response = gson.fromJson(responseBody, PersonsResponse.class);
-                return response;
-            }
-        }
-        catch (Exception e)
-        {
-            Log.e("GetPerson", e.getMessage(), e);
-        }
-        return null;
-    }
-
-    public static EventsResponse GetEvents(String auth)
-    {
-        try
-        {
-            URL server = new URL("http://" + Client.getClient().getHost() + ":" + Client.getClient().getPort() + "/event");
-            HttpURLConnection connection = (HttpURLConnection) server.openConnection();
-            connection.setRequestMethod("GET");
-            connection.setRequestProperty("Authorization", auth);
-            connection.connect();
-
-            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK)
-            {
-                InputStreamReader responseBody = new InputStreamReader(connection.getInputStream());
-
-                // Read response body
-                EventsResponse response = gson.fromJson(responseBody, EventsResponse.class);
-                return response;
-            }
-        }
-        catch (Exception e)
-        {
-            Log.e("GetEvents", e.getMessage(), e);
-        }
         return null;
     }
 }

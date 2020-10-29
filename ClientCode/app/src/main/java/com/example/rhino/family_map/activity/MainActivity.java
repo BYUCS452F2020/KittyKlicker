@@ -15,8 +15,6 @@ import com.example.rhino.family_map.R;
 import com.example.rhino.family_map.fragment.LoginFragment;
 import com.example.rhino.family_map.fragment.MapsFragment;
 
-import model.client.Client;
-
 public class MainActivity extends AppCompatActivity {
 
     private static FragmentManager fragMan;

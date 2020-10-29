@@ -7,10 +7,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.rhino.family_map.R;
-import com.example.rhino.family_map.fragment.LoginFragment;
 import com.example.rhino.family_map.fragment.MapsFragment;
-
-import model.client.Client;
 
 public class EventActivity extends AppCompatActivity {
 

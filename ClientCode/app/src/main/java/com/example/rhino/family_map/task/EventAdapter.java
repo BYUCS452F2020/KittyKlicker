@@ -14,8 +14,6 @@ import com.example.rhino.family_map.activity.EventActivity;
 
 import java.util.Vector;
 
-import model.client.Client;
-
 /**
  * Created by jswense2 on 12/1/18.
  */

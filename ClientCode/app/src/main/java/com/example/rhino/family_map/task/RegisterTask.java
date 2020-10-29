@@ -4,8 +4,8 @@ import android.os.AsyncTask;
 
 import com.example.rhino.family_map.proxy.Proxy;
 
-import model.Login_RegisterResponse;
-import model.RegisterRequest;
+import model.request.RegisterRequest;
+import model.response.Login_RegisterResponse;
 
 public class RegisterTask extends AsyncTask<RegisterRequest, Integer, Login_RegisterResponse> {
 

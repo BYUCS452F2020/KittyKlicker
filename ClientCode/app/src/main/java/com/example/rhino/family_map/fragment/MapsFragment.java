@@ -27,8 +27,6 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import java.util.Map;
 import java.util.Vector;
 
-import model.client.Client;
-
 import static com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_BLUE;
 import static com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_CYAN;
 import static com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_GREEN;

@@ -4,8 +4,8 @@ import android.os.AsyncTask;
 
 import com.example.rhino.family_map.proxy.Proxy;
 
-import model.LoginRequest;
-import model.Login_RegisterResponse;
+import model.request.LoginRequest;
+import model.response.Login_RegisterResponse;
 
 /**
  * Created by jswense2 on 11/17/18.

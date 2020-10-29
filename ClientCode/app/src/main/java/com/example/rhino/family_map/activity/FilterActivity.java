@@ -12,8 +12,6 @@ import com.example.rhino.family_map.task.FilterAdapter;
 
 import java.util.Map;
 
-import model.client.Client;
-
 public class FilterActivity extends AppCompatActivity {
 
     private Client client;

@@ -17,8 +17,6 @@ import com.example.rhino.family_map.task.SearchAdapter;
 import java.util.Map;
 import java.util.Vector;
 
-import model.client.Client;
-
 public class SearchActivity extends AppCompatActivity {
 
     private Client client;

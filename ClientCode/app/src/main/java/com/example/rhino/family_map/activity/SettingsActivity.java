@@ -14,12 +14,9 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.rhino.family_map.R;
-import com.example.rhino.family_map.task.GetInfoTask;
 import com.google.android.gms.maps.GoogleMap;
 
 import java.util.Vector;
-
-import model.client.Client;
 
 public class SettingsActivity extends AppCompatActivity implements GetInfoTask.GetInfoListener {
 

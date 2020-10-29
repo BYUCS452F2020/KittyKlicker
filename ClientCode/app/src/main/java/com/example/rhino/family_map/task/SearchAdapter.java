@@ -16,8 +16,6 @@ import com.example.rhino.family_map.activity.SearchActivity;
 
 import java.util.Vector;
 
-import model.client.Client;
-
 /**
  * Created by jswense2 on 12/11/18.
  */
