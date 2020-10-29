@@ -1,19 +1,16 @@
 package main.java.service;
 
-import java.sql.SQLException;
-
-import dao.AuthTokenDao;
-import main.java.dao.DataBase;
-import dao.PersonDao;
-import main.java.dao.UserDao;
+import main.java.dao.*;
 import main.java.response.Response;
+
+import java.sql.SQLException;
 
 /**
  * Clear Service
  */
 public class ClearService {
 
-    private static DataBase db = new DataBase();
+    private static DataBase db = DataBase.getInstance();
     /**
      * ClearService Constructor
      */
@@ -28,8 +25,8 @@ public class ClearService {
             db.openConnection();
             AuthTokenDao.clear();
             UserDao.clear();
-            PersonDao.clear();
-            EventDao.clear();
+            PowerUpDao.clear();
+            TeamDao.clear();
         }
         catch (SQLException e)
         {
