@@ -29,6 +29,7 @@
     <string name="first_name_login">First Name:</string>
     <string name="last_name_login">Last Name:</string>
     <string name="email_login">Email:</string>
+    <string name="team_login">Team Name:</string>
     <string name="gender_login">Gender:</string>
     <string name="male_selected">Male</string>
     <string name="female_selected">Female</string>

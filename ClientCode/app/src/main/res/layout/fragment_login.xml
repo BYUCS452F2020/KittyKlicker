@@ -32,22 +32,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="57dp"
                         android:layout_gravity="end"
-                        android:text="@string/server_host_login"
-                        android:textAlignment="textEnd" />
-
-                    <TextView
-                        style="?android:listSeparatorTextViewStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:text="@string/server_port_login"
-                        android:textAlignment="textEnd" />
-
-                    <TextView
-                        style="?android:listSeparatorTextViewStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="57dp"
-                        android:layout_gravity="end"
                         android:text="@string/username_login"
                         android:textAlignment="textEnd" />
 
@@ -64,31 +48,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="57dp"
                         android:layout_gravity="end"
-                        android:text="@string/first_name_login"
-                        android:textAlignment="textEnd" />
-
-                    <TextView
-                        style="?android:listSeparatorTextViewStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:text="@string/last_name_login"
-                        android:textAlignment="textEnd" />
-
-                    <TextView
-                        style="?android:listSeparatorTextViewStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="57dp"
-                        android:layout_gravity="end"
-                        android:text="@string/email_login"
-                        android:textAlignment="textEnd" />
-
-                    <TextView
-                        style="?android:listSeparatorTextViewStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:text="@string/gender_login"
+                        android:text="@string/team_login"
                         android:textAlignment="textEnd" />
 
                 </LinearLayout>
