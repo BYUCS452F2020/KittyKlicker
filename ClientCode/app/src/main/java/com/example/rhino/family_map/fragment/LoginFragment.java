@@ -1,8 +1,10 @@
 package com.example.rhino.family_map.fragment;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.rhino.family_map.activity.MainActivity;
 import com.example.rhino.family_map.task.LoginTask;
 import com.example.rhino.family_map.R;
 import com.example.rhino.family_map.task.RegisterTask;
@@ -150,7 +153,7 @@ public class LoginFragment
             client.setKittyPower(response.getKittyPower());
             client.setPowerups(response.getPowerups());
             client.setTeamName(response.getTeamName());
-//todo: figure out what else you need to do here
+            ((MainActivity) getActivity()).onLoginComplete();
         }
     }
 
