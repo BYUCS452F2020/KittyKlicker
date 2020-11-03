@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.example.rhino.family_map.R;
 import com.example.rhino.family_map.fragment.LoginFragment;
-import com.example.rhino.family_map.fragment.MapsFragment;
+import com.example.rhino.family_map.fragment.MainFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     {
         FragmentManager fm = getSupportFragmentManager();
 
-        Fragment fragment = new MapsFragment();
+        Fragment fragment = new MainFragment();
         fm.beginTransaction()
                 .replace(R.id.main_fragment_container, fragment)
                 .commit();
@@ -60,25 +60,25 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.search:
-                showToast("Search");
-                startActivity(SearchActivity.class);
-                return true;    // return true when handled successfully
-            case R.id.settings:
-                showToast("Settings");
-                startActivity(SettingsActivity.class);
-                return true;
-            case R.id.filter:
-                showToast("Filter");
-                startActivity(FilterActivity.class);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.search:
+//                showToast("Search");
+//                startActivity(SearchActivity.class);
+//                return true;    // return true when handled successfully
+//            case R.id.settings:
+//                showToast("Settings");
+//                startActivity(SettingsActivity.class);
+//                return true;
+//            case R.id.filter:
+//                showToast("Filter");
+//                startActivity(FilterActivity.class);
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//    }
 
     private void showToast(String string) {
         Toast.makeText(this, string, Toast.LENGTH_LONG).show();

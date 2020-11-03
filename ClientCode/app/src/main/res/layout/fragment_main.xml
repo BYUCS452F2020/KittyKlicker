@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -51,7 +51,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textAlignment="center"
         android:text="@string/kitty_klicker"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="0dp"
         android:textStyle="bold"
         />
 
@@ -59,7 +59,7 @@
         android:id="@+id/kitty_image"
         android:contentDescription="@string/kitty_klicker"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:src="@drawable/kitty"
         />
 
@@ -71,7 +71,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textAlignment="center"
         android:text="@string/score"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="0dp"
         />
 
     <TextView
@@ -82,7 +82,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textAlignment="center"
         android:text="@string/kitty_power"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="0dp"
         />
 
     <View

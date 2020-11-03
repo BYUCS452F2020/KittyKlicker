@@ -9,7 +9,7 @@
     <string name="powerups">Powerups</string>
     
     <!-- General -->
-    <string name="app_name">Family Map</string>
+    <string name="app_name">KittyKlicker</string>
     <string name="activity_person">Family Map: Person Details</string>
     <string name="activity_event">Family Map: Event Details</string>
     <string name="activity_filter">Family Map: Filter</string>

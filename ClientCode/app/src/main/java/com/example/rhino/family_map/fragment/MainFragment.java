@@ -2,6 +2,7 @@ package com.example.rhino.family_map.fragment;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,18 +10,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-<<<<<<< HEAD
 import com.example.rhino.family_map.R;
+import com.example.rhino.family_map.proxy.Proxy;
 
-=======
 import com.example.rhino.family_map.activity.MainActivity;
 import com.example.rhino.family_map.R;
 
 import java.util.Map;
 import java.util.Vector;
 
->>>>>>> 6d499f874322db750f64cfe45925dd5bf4b6ac41
 import model.client.KittyClient;
+import model.request.KlickRequest;
+import model.response.KlickResponse;
 
 public class MainFragment extends Fragment {
 
@@ -30,15 +31,11 @@ public class MainFragment extends Fragment {
     private TextView score;
     private TextView kittyPower;
     private TextView powerups;
-<<<<<<< HEAD
-=======
     private ImageView p1;
     private ImageView p2;
     private ImageView p3;
     private ImageView p4;
     private ImageView p5;
-
->>>>>>> 6d499f874322db750f64cfe45925dd5bf4b6ac41
     private KittyClient client;
 
     @Override
@@ -61,9 +58,9 @@ public class MainFragment extends Fragment {
             }
         });
         score = view.findViewById(R.id.score);
-        score.setText(client.getKittiesKlicked());
+        score.setText("Score: " + Integer.toString(client.getKittiesKlicked()));
         kittyPower = view.findViewById(R.id.kitty_power);
-        kittyPower.setText(client.getKittyPower());
+        kittyPower.setText("KittyPower: " + Integer.toString(client.getKittyPower()));
         powerups = view.findViewById(R.id.powerups);
 //        powerups.setText(client.getPowerups());
         p1 = view.findViewById(R.id.p1);
@@ -106,7 +103,12 @@ public class MainFragment extends Fragment {
     }
 
     private void catClicked() {
-        //cat was clicked... do things
+        client.setKittiesKlicked(client.getKittiesKlicked()+client.getKittyPower());
+        Toast toast = Toast.makeText(getActivity(), "+1", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
+        score.setText("Score: " + Integer.toString(client.getKittiesKlicked()));
+        KlickResponse response = Proxy.Klick(new KlickRequest(client.getAuthToken()));
     }
 
     private void showToast(String message) {
