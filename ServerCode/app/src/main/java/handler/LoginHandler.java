@@ -1,9 +1,9 @@
-package main.java.handler;
+package handler;
 
 import com.sun.net.httpserver.HttpExchange;
-import main.java.request.LoginRequest;
-import main.java.response.Response;
-import main.java.service.LoginService;
+import request.LoginRequest;
+import response.Response;
+import service.LoginService;
 
 import java.io.*;
 

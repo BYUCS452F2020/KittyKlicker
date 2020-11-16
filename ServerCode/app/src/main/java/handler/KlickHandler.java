@@ -1,9 +1,9 @@
-package main.java.handler;
+package handler;
 
 import com.sun.net.httpserver.HttpExchange;
-import main.java.request.KlickRequest;
-import main.java.response.Response;
-import main.java.service.KlickService;
+import request.KlickRequest;
+import response.Response;
+import service.KlickService;
 
 import java.io.*;
 

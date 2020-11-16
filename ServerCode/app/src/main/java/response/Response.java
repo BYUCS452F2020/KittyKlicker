@@ -1,4 +1,4 @@
-package main.java.response;
+package response;
 
 /**
  * @author Jared Swensen

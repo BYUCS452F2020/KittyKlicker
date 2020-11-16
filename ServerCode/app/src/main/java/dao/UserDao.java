@@ -1,6 +1,6 @@
-package main.java.dao;
+package dao;
 
-import main.java.model.User;
+import model.User;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

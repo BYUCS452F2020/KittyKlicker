@@ -1,4 +1,4 @@
-package main.java.request;
+package request;
 
 /**
  * @author Jared Swensen

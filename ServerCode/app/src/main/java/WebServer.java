@@ -1,8 +1,6 @@
-package main.java;
-
 import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpServer;
-import main.java.handler.*;
+import handler.*;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -52,7 +50,7 @@ public class WebServer {
         System.out.println("Creating contexts");
         System.out.println();
 
-        server.createContext("/", new RootHandler());
+        //server.createContext("/", new RootHandler());
 
         //server.createContext("/user/register", new RegisterHandler());
         server.createContext("/user/login", new LoginHandler());

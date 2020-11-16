@@ -1,11 +1,11 @@
-package main.java.service;
+package service;
 
-import main.java.dao.AuthTokenDao;
-import main.java.dao.DataBase;
-import main.java.dao.UserDao;
-import main.java.request.KlickRequest;
-import main.java.response.KlickResponse;
-import main.java.response.Response;
+import dao.AuthTokenDao;
+import dao.DataBase;
+import dao.UserDao;
+import request.KlickRequest;
+import response.KlickResponse;
+import response.Response;
 
 import java.sql.SQLException;
 

@@ -1,7 +1,7 @@
-package main.java.service;
+package service;
 
-import main.java.dao.*;
-import main.java.response.Response;
+import dao.*;
+import response.Response;
 
 import java.sql.SQLException;
 

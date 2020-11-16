@@ -1,4 +1,4 @@
-package main.java.dao;
+package dao;
 
 /**
  * Created by jswense2 on 10/16/18.

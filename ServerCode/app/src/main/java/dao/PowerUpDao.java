@@ -1,6 +1,6 @@
-package main.java.dao;
+package dao;
 
-import main.java.model.PowerUp;
+import model.PowerUp;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

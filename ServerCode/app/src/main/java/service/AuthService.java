@@ -1,8 +1,8 @@
-package main.java.service;
+package service;
 
-import main.java.dao.AuthTokenDao;
-import main.java.dao.DataBase;
-import main.java.model.AuthToken;
+import dao.AuthTokenDao;
+import dao.DataBase;
+import model.AuthToken;
 
 import java.sql.SQLException;
 import java.util.UUID;

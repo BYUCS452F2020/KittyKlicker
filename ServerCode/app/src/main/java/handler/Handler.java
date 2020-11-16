@@ -1,4 +1,4 @@
-package main.java.handler;
+package handler;
 
 import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpHandler;

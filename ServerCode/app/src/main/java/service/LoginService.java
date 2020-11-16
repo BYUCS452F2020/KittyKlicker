@@ -1,12 +1,11 @@
-package main.java.service;
+package service;
 
-import main.java.dao.DataBase;
-import main.java.dao.UserDao;
-import main.java.model.AuthToken;
-import main.java.model.User;
-import main.java.request.LoginRequest;
-import main.java.response.LoginResponse;
-import main.java.response.Response;
+import dao.DataBase;
+import dao.UserDao;
+import model.AuthToken;
+import model.User;
+import request.LoginRequest;
+import response.Response;
 
 import java.sql.SQLException;
 
@@ -57,7 +56,7 @@ public class LoginService {
 
             AuthToken auth = AuthService.generate(username);
 
-            return new LoginResponse(auth.getToken(), user.getUserID());
+            return new model.response.Login_RegisterResponse(auth.getToken(), user.getUserID(), user.getTeamName(), user.getKittiesKlicked(), user.getKittiesPerKlick(), null);
         }
         catch (SQLException e)
         {

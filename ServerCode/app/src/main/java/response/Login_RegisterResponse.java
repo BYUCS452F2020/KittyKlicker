@@ -2,6 +2,8 @@ package model.response;
 
 import java.util.List;
 
+import response.Response;
+
 /**
  * @author Jared Swensen
  */

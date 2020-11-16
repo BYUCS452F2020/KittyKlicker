@@ -1,8 +1,8 @@
-package main.java.handler;
+package handler;
 
 import com.sun.net.httpserver.HttpExchange;
-import main.java.response.Response;
-import main.java.service.ClearService;
+import response.Response;
+import service.ClearService;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
