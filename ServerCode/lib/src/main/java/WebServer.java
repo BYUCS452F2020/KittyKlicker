@@ -58,7 +58,7 @@ public class WebServer {
         //server.createContext("/", new RootHandler());
 
         //server.createContext("/user/register", new RegisterHandler());
-        server.createContext("/user/login", new LoginHandler());
+        server.createContext("/login-register", new LoginHandler());
         server.createContext("/clear", new ClearHandler());
         server.createContext("/klick", new KlickHandler());
 
