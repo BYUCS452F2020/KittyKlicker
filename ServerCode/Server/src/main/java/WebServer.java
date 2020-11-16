@@ -1,4 +1,3 @@
-import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpServer;
 
 import java.io.IOException;
@@ -14,8 +13,6 @@ import handler.LoginHandler;
  */
 
 public class WebServer {
-
-    Gson gson = new Gson();
 
     public static void main(String[] args)
     {
