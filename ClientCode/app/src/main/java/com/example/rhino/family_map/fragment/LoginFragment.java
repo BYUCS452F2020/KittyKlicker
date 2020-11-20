@@ -148,7 +148,6 @@ public class LoginFragment
         {
             client.setAuthToken(response.getAuthToken());
             client.setUserID(response.getUserID());
-            client.setUserID(response.getUserID());
             client.setKittiesKlicked(response.getKittiesKlicked());
             client.setKittyPower(response.getKittyPower());
             client.setPowerups(response.getPowerups());

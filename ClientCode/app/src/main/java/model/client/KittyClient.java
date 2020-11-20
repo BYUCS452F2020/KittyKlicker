@@ -24,6 +24,8 @@ public class KittyClient {
         kittiesKlicked = 0;
         kittyPower = 0;//todo: check that this is correct for starting
         powerups = new ArrayList<String>();
+        host = "192.168.1.218";
+        port = "80";
     }
 
     public static KittyClient getClient() {

@@ -19,7 +19,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,30 +36,30 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/. 
         -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+<!--        <meta-data-->
+<!--            android:name="com.google.android.geo.API_KEY"-->
+<!--            android:value="@string/google_maps_key" />-->
 
-        <activity android:name=".activity.SettingsActivity"
-            android:parentActivityName=".activity.MainActivity"
-            android:label="@string/activity_settings"
-            />
-        <activity android:name=".activity.SearchActivity"
-            android:parentActivityName=".activity.MainActivity"
-            android:label="@string/activity_search"
-            />
-        <activity android:name=".activity.FilterActivity"
-            android:parentActivityName=".activity.MainActivity"
-            android:label="@string/activity_filter"
-            />
-        <activity android:name=".activity.PersonActivity"
-            android:parentActivityName=".activity.MainActivity"
-            android:label="@string/activity_person"
-            />
-        <activity android:name=".activity.EventActivity">
-            android:parentActivityName=".activity.MainActivity"
-            android:label="@string/activity_event"
-        </activity>
+<!--        <activity android:name=".activity.SettingsActivity"-->
+<!--            android:parentActivityName=".activity.MainActivity"-->
+<!--            android:label="@string/activity_settings"-->
+<!--            />-->
+<!--        <activity android:name=".activity.SearchActivity"-->
+<!--            android:parentActivityName=".activity.MainActivity"-->
+<!--            android:label="@string/activity_search"-->
+<!--            />-->
+<!--        <activity android:name=".activity.FilterActivity"-->
+<!--            android:parentActivityName=".activity.MainActivity"-->
+<!--            android:label="@string/activity_filter"-->
+<!--            />-->
+<!--        <activity android:name=".activity.PersonActivity"-->
+<!--            android:parentActivityName=".activity.MainActivity"-->
+<!--            android:label="@string/activity_person"-->
+<!--            />-->
+<!--        <activity android:name=".activity.EventActivity">-->
+<!--            android:parentActivityName=".activity.MainActivity"-->
+<!--            android:label="@string/activity_event"-->
+<!--        </activity>-->
     </application>
 
 </manifest>

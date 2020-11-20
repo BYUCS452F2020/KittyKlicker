@@ -39,7 +39,8 @@ public class Proxy {
     public static Login_RegisterResponse Login(LoginRequest request) {
         try
         {
-            URL server = new URL("http://" + KittyClient.getClient().getHost() + ":" + KittyClient.getClient().getPort() + "/user/login");
+            System.out.println("http://" + KittyClient.getClient().getHost() + ":" + KittyClient.getClient().getPort() + "/login-register");
+            URL server = new URL("http://" + KittyClient.getClient().getHost() + ":" + KittyClient.getClient().getPort() + "/login-register");
             HttpURLConnection connection = (HttpURLConnection) server.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
@@ -71,7 +72,7 @@ public class Proxy {
     public static Login_RegisterResponse Register(RegisterRequest request) {
         try
         {
-            URL server = new URL("http://" + KittyClient.getClient().getHost() + ":" + KittyClient.getClient().getPort() + "/user/login");
+            URL server = new URL("http://" + KittyClient.getClient().getHost() + ":" + KittyClient.getClient().getPort() + "/login-register");
             HttpURLConnection connection = (HttpURLConnection) server.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
@@ -104,7 +105,7 @@ public class Proxy {
     {
         try
         {
-            URL server = new URL("http://" + KittyClient.getClient().getHost() + ":" + KittyClient.getClient().getPort() + "/user/login");
+            URL server = new URL("http://" + KittyClient.getClient().getHost() + ":" + KittyClient.getClient().getPort() + "/klick");
             HttpURLConnection connection = (HttpURLConnection) server.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
