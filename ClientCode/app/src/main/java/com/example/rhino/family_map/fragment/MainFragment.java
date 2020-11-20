@@ -15,6 +15,7 @@ import com.example.rhino.family_map.proxy.Proxy;
 
 import com.example.rhino.family_map.activity.MainActivity;
 import com.example.rhino.family_map.R;
+import com.example.rhino.family_map.task.KlickTask;
 
 import java.util.Map;
 import java.util.Vector;
@@ -23,7 +24,7 @@ import model.client.KittyClient;
 import model.request.KlickRequest;
 import model.response.KlickResponse;
 
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements KlickTask.KlickListener {
 
     private TextView username;
     private TextView teamName;
@@ -37,6 +38,7 @@ public class MainFragment extends Fragment {
     private ImageView p4;
     private ImageView p5;
     private KittyClient client;
+    private KlickRequest klickRequest;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -103,12 +105,23 @@ public class MainFragment extends Fragment {
     }
 
     private void catClicked() {
-        client.setKittiesKlicked(client.getKittiesKlicked()+client.getKittyPower());
+        KlickTask klickTask = new KlickTask(this);
+        klickTask.execute(new KlickRequest(client.getAuthToken()));
+//        client.setKittiesKlicked(client.getKittiesKlicked()+client.getKittyPower());
+//        Toast toast = Toast.makeText(getActivity(), "+1", Toast.LENGTH_SHORT);
+//        toast.setGravity(Gravity.CENTER, 0, 0);
+//        toast.show();
+//        score.setText("Score: " + Integer.toString(client.getKittiesKlicked()));
+//        KlickResponse response = Proxy.Klick(new KlickRequest(client.getAuthToken()));
+    }
+
+    @Override
+    public void onKlickComplete(KlickResponse response) {
+        client.setKittiesKlicked(response.getKittiesKlicked());
         Toast toast = Toast.makeText(getActivity(), "+1", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
-        score.setText("Score: " + Integer.toString(client.getKittiesKlicked()));
-        KlickResponse response = Proxy.Klick(new KlickRequest(client.getAuthToken()));
+        score.setText("Score: " + client.getKittiesKlicked());
     }
 
     private void showToast(String message) {

@@ -31,9 +31,42 @@ public class Proxy {
         return response;
     }
 
-    public static KlickResponse Klick(KlickRequest request) {
-        KlickResponse response = new KlickResponse(1);
-        return response;
+//    public static KlickResponse Klick(KlickRequest request) {
+//        KlickResponse response = new KlickResponse(1);
+//        return response;
+//    }
+
+    public static KlickResponse Klick(KlickRequest request)
+    {
+        try
+        {
+            URL server = new URL("http://" + KittyClient.getClient().getHost() + ":" + KittyClient.getClient().getPort() + "/user/login");
+            HttpURLConnection connection = (HttpURLConnection) server.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setDoOutput(true);
+
+            OutputStreamWriter ow = new OutputStreamWriter(connection.getOutputStream());
+            gson.toJson(request, ow);
+            ow.flush();
+            ow.close();
+
+            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK)
+            {
+                // Get response body
+                InputStreamReader responseBody = new InputStreamReader(connection.getInputStream());
+
+                // Read response body
+                KlickResponse response = gson.fromJson(responseBody, KlickResponse.class);
+                return response;
+            }
+        }
+        catch (Exception e)
+        {
+            Log.e("Klick", e.getMessage(), e);
+            return new KlickResponse(0);
+        }
+
+        return null;
     }
 
 //    private String authToken;
