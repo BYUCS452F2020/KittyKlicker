@@ -1,11 +1,11 @@
 import com.sun.net.httpserver.HttpServer;
-
-import java.io.IOException;
-import java.net.InetSocketAddress;
-
 import handler.ClearHandler;
 import handler.KlickHandler;
 import handler.LoginHandler;
+import handler.RegisterHandler;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
 
 
 /**
@@ -55,7 +55,8 @@ public class WebServer {
         //server.createContext("/", new RootHandler());
 
         //server.createContext("/user/register", new RegisterHandler());
-        server.createContext("/login-register", new LoginHandler());
+        server.createContext("/login", new LoginHandler());
+        server.createContext("/register", new RegisterHandler());
         server.createContext("/clear", new ClearHandler());
         server.createContext("/klick", new KlickHandler());
 
