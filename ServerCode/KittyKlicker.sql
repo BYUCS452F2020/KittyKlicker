@@ -16,3 +16,8 @@ CREATE TABLE powerup(
     benefits text NOT NULL,
     userID text
 );
+CREATE TABLE Auth
+(
+    Username text NOT NULL,
+    Token text NOT NULL
+);
