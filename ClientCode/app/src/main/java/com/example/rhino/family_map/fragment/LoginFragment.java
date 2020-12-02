@@ -147,11 +147,11 @@ public class LoginFragment
         else
         {
             client.setAuthToken(response.getAuthToken());
-            client.setUserID(response.getUserID());
-            client.setKittiesKlicked(response.getKittiesKlicked());
-            client.setKittyPower(response.getKittyPower());
+            client.setUserID(response.getUser().getUserID());
+            client.setKittiesKlicked(response.getUser().getKittiesKlicked());
+            client.setKittyPower(1);  // response.getUser().getKittyPower()
             client.setPowerups(response.getPowerups());
-            client.setTeamName(response.getTeamName());
+            client.setTeamName(response.getTeam().getTeamID());
             ((MainActivity) getActivity()).onLoginComplete();
         }
     }

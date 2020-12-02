@@ -1,8 +1,9 @@
-package response;
+package model.response;
 
-import model.PowerUp;
-import model.Team;
-import model.User;
+import model.response.Response;
+import model.server.PowerUp;
+import model.server.Team;
+import model.server.User;
 
 import java.util.List;
 

@@ -30,11 +30,13 @@ public class KlickTask extends AsyncTask<KlickRequest, Integer, KlickResponse> {
     protected KlickResponse doInBackground(KlickRequest... request)
     {
 //        return Proxy.Login(request[0]);
+//        System.out.println("klick task");
         return Proxy.Klick(request[0]);
     }
 
     protected void onPostExecute(KlickResponse response)
     {
+//        System.out.println("post execute");
         listener.onKlickComplete(response);
     }
 }

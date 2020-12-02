@@ -105,6 +105,7 @@ public class MainFragment extends Fragment implements KlickTask.KlickListener {
     }
 
     private void catClicked() {
+//        System.out.println("cat clicked");
         KlickTask klickTask = new KlickTask(this);
         klickTask.execute(new KlickRequest(client.getAuthToken()));
 //        client.setKittiesKlicked(client.getKittiesKlicked()+client.getKittyPower());
@@ -117,11 +118,12 @@ public class MainFragment extends Fragment implements KlickTask.KlickListener {
 
     @Override
     public void onKlickComplete(KlickResponse response) {
+//        System.out.println("klick complete");
         client.setKittiesKlicked(response.getKittiesKlicked());
         Toast toast = Toast.makeText(getActivity(), "+1", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
-        score.setText("Score: " + client.getKittiesKlicked());
+        score.setText("Score: " + response.getKittiesKlicked());
     }
 
     private void showToast(String message) {

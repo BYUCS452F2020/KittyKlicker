@@ -39,8 +39,8 @@ public class Proxy {
     public static Login_RegisterResponse Login(LoginRequest request) {
         try
         {
-            System.out.println("http://" + KittyClient.getClient().getHost() + ":" + KittyClient.getClient().getPort() + "/login-register");
-            URL server = new URL("http://" + KittyClient.getClient().getHost() + ":" + KittyClient.getClient().getPort() + "/login-register");
+//            System.out.println("http://" + KittyClient.getClient().getHost() + ":" + KittyClient.getClient().getPort() + "/login");
+            URL server = new URL("http://" + KittyClient.getClient().getHost() + ":" + KittyClient.getClient().getPort() + "/login");
             HttpURLConnection connection = (HttpURLConnection) server.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
@@ -72,7 +72,7 @@ public class Proxy {
     public static Login_RegisterResponse Register(RegisterRequest request) {
         try
         {
-            URL server = new URL("http://" + KittyClient.getClient().getHost() + ":" + KittyClient.getClient().getPort() + "/login-register");
+            URL server = new URL("http://" + KittyClient.getClient().getHost() + ":" + KittyClient.getClient().getPort() + "/register");
             HttpURLConnection connection = (HttpURLConnection) server.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
@@ -105,6 +105,7 @@ public class Proxy {
     {
         try
         {
+//            System.out.println("proxy start");
             URL server = new URL("http://" + KittyClient.getClient().getHost() + ":" + KittyClient.getClient().getPort() + "/klick");
             HttpURLConnection connection = (HttpURLConnection) server.openConnection();
             connection.setRequestMethod("POST");
@@ -122,12 +123,17 @@ public class Proxy {
 
                 // Read response body
                 KlickResponse response = gson.fromJson(responseBody, KlickResponse.class);
+//                System.out.println("proxy end");
                 return response;
+            }
+            else {
+                System.out.println("PROXY FAIL");
             }
         }
         catch (Exception e)
         {
             Log.e("Klick", e.getMessage(), e);
+            e.printStackTrace();
             return new KlickResponse(0);
         }
 

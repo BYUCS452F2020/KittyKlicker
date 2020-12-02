@@ -3,6 +3,8 @@ package model.client;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.server.PowerUp;
+
 public class KittyClient {
 
     private static KittyClient client;
@@ -15,7 +17,7 @@ public class KittyClient {
     private String teamName;
     private int kittiesKlicked;
     private int kittyPower;
-    private List<String> powerups;
+    private List<PowerUp> powerups;
 
     private KittyClient() {
         userID = null;
@@ -23,7 +25,7 @@ public class KittyClient {
         teamName = null;
         kittiesKlicked = 0;
         kittyPower = 0;//todo: check that this is correct for starting
-        powerups = new ArrayList<String>();
+        powerups = null;
         host = "192.168.1.218";
         port = "80";
     }
@@ -40,7 +42,7 @@ public class KittyClient {
         teamName = null;
         kittiesKlicked = 0;
         kittyPower = 0;//todo: check that this is correct for starting
-        powerups = new ArrayList<String>();
+        powerups = null;
     }
 
     public String getHost() {
@@ -91,11 +93,11 @@ public class KittyClient {
         this.kittyPower = kittyPower;
     }
 
-    public List<String> getPowerups() {
+    public List<PowerUp> getPowerups() {
         return powerups;
     }
 
-    public void setPowerups(List<String> powerups) {
+    public void setPowerups(List<PowerUp> powerups) {
         this.powerups = powerups;
     }
 }
