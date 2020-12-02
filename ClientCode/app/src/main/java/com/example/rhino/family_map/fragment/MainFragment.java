@@ -31,6 +31,7 @@ public class MainFragment extends Fragment implements KlickTask.KlickListener {
 
     private TextView username;
     private TextView teamName;
+    private TextView logout;
     private ImageView grumpyCat;
     private TextView score;
     private TextView kittyPower;
@@ -59,6 +60,16 @@ public class MainFragment extends Fragment implements KlickTask.KlickListener {
             @Override
             public void onClick(View v) {
                 showToast(client.getTeamMotto());
+            }
+        });
+
+        logout = view.findViewById(R.id.log_out);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showToast("Good Bye");
+                client.clear();
+                MainActivity.startTopActivity(getActivity(), true);
             }
         });
 

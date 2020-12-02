@@ -27,13 +27,26 @@
             android:id="@+id/team"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
+            android:layout_gravity="center_horizontal"
             android:layout_weight="1"
 
             android:textSize="24sp"
             android:textColor="@color/colorPrimaryDark"
             android:textAlignment="center"
             android:text="@string/team"
+            />
+
+        <TextView
+            android:id="@+id/log_out"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+
+            android:textSize="24sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textAlignment="center"
+            android:text="@string/logout"
             />
 
     </LinearLayout>
