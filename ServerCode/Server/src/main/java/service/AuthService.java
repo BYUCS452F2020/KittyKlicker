@@ -1,11 +1,11 @@
 package service;
 
-import java.sql.SQLException;
-import java.util.UUID;
-
 import dao.AuthTokenDao;
 import dao.DataBase;
 import model.AuthToken;
+
+import java.sql.SQLException;
+import java.util.UUID;
 
 public class AuthService
 {
@@ -18,6 +18,7 @@ public class AuthService
 
     public static AuthToken generate(String username) throws SQLException
     {
+        AuthTokenDao.remove(username);
         AuthToken auth = new AuthToken(username, UUID.randomUUID().toString().substring(0, 8));
         AuthTokenDao.insert(auth);
         return auth;

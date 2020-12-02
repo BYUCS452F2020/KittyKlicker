@@ -1,10 +1,10 @@
 package dao;
 
+import model.Team;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import model.Team;
 
 /**
  * Team Data Access Operator
@@ -26,14 +26,14 @@ public class TeamDao {
      */
     public static Team find(String id) throws SQLException
     {
-        String query = "SELECT * FROM Teams WHERE TeamID = ?";
+        String query = "SELECT * FROM team WHERE teamID = ?";
         PreparedStatement stmt = db.getPreparedStatement(query);
         stmt.setString(1, id);
         Team team = null;
         ResultSet r = db.executeQuery(stmt);
         if (r.next())
         {
-            team = new Team(r.getString("TeamID"), r.getString("Motto"), r.getInt("TotalKittiesKlicked"));
+            team = new Team(r.getString("teamID"), r.getString("motto"), r.getInt("totalKittiesKlicked"));
         }
 
         return team;
@@ -47,11 +47,11 @@ public class TeamDao {
      */
     public static boolean insert(Team team) throws SQLException
     {
-        String update = "INSERT INTO Teams (TeamId, Motto, TotalKittiesKlicked) VALUES (?, ?, ?)";
+        String update = "INSERT INTO team (teamId, motto, totalKittiesKlicked) VALUES (?, ?, ?)";
         PreparedStatement stmt = db.getPreparedStatement(update);
         stmt.setString(1, team.getTeamID());
-        stmt.setString(1, team.getMotto());
-        stmt.setInt(1, team.getTotalKittiesKlicked());
+        stmt.setString(2, team.getMotto());
+        stmt.setInt(3, team.getTotalKittiesKlicked());
         db.executeUpdate(stmt);
         return false;
     }
@@ -64,7 +64,7 @@ public class TeamDao {
      */
     public boolean remove(String id) throws SQLException
     {
-        String update = "DELETE FROM Persons WHERE TeamId = ?";
+        String update = "DELETE FROM Persons WHERE teamId = ?";
         PreparedStatement stmt = db.getPreparedStatement(update);
         stmt.setString(1, id);
         db.executeUpdate(stmt);
@@ -75,7 +75,7 @@ public class TeamDao {
     // clear the Persons table
     public static boolean clear() throws SQLException
     {
-        String update = "DELETE FROM Teams";
+        String update = "DELETE FROM team";
         db.executeUpdate(db.getPreparedStatement(update));
 
         return false;

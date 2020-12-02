@@ -1,14 +1,19 @@
 package service;
 
-import java.sql.SQLException;
-
 import dao.DataBase;
+import dao.PowerUpDao;
+import dao.TeamDao;
 import dao.UserDao;
 import model.AuthToken;
+import model.PowerUp;
+import model.Team;
 import model.User;
 import request.LoginRequest;
 import response.Login_RegisterResponse;
 import response.Response;
+
+import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Login Service
@@ -55,9 +60,13 @@ public class LoginService {
                 return new Response("Invalid Password");
             }
 
+            Team team = TeamDao.find(user.getTeamName());
+
+            List<PowerUp> powerups = PowerUpDao.find(user.getUserID());
+
             AuthToken auth = AuthService.generate(username);
 
-            return new Login_RegisterResponse(auth.getToken(), user.getUserID(), user.getTeamName(), user.getKittiesKlicked(), user.getKittiesPerKlick(), null);
+            return new Login_RegisterResponse(auth.getToken(), user, team, powerups);
         }
         catch (SQLException e)
         {

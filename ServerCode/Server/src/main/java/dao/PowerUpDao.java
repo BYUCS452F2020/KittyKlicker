@@ -1,15 +1,23 @@
 package dao;
 
+import model.PowerUp;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import model.PowerUp;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Event Data Access Operator
  */
 public class PowerUpDao {
+
+    public static final PowerUp NEWEST_PLAYER = new PowerUp(
+            "Newest Player",
+            "You are the most recent person to make a Kitty Klicker account",
+            "You are special",
+            null);
 
     private static DataBase db = DataBase.getInstance();
 
@@ -20,23 +28,25 @@ public class PowerUpDao {
     }
 
     /**
-     * check to see if a powerup exists in the database
-     * @param id the powerup id
+     * check to see if a user has any powerups in the database
      * @return the powerup object found, otherwise null
      */
-    public static PowerUp find(String id) throws SQLException
+    public static List<PowerUp> find(String id) throws SQLException
     {
-        String query = "SELECT * FROM Powerups WHERE id = ?";
+        String query = "SELECT * FROM powerup WHERE userID = ?";
         PreparedStatement stmt = db.getPreparedStatement(query);
         stmt.setString(1, id);
-        PowerUp powerup = null;
+
+        List<PowerUp> result = new ArrayList<>();
         ResultSet r = db.executeQuery(stmt);
-        if (r.next())
+        while (r.next())
         {
-            powerup = new PowerUp(r.getString("PowerupID"), r.getString("Requirements"), r.getString("Benefits"), r.getString("UserID"));
+            PowerUp powerup = null;
+            powerup = new PowerUp(r.getString("powerupID"), r.getString("requirements"), r.getString("benefits"), r.getString("userID"));
+            result.add(powerup);
         }
 
-        return powerup;
+        return result;
     }
 
     /**
@@ -45,7 +55,7 @@ public class PowerUpDao {
      */
     public static void insert(PowerUp power) throws SQLException
     {
-        String update = "INSERT INTO Events (id, Descendant, Person, Latitude, Longitude, Country, City, EventType, Year) VALUES (?, ?, ?, ?)";
+        String update = "INSERT INTO powerup (powerupID, requirements, benefits, userID) VALUES (?, ?, ?, ?)";
         PreparedStatement stmt = db.getPreparedStatement(update);
         stmt.setString(1, power.getPowerUpName());
         stmt.setString(2, power.getRequirements());
@@ -60,7 +70,7 @@ public class PowerUpDao {
      */
     public static void remove(String id) throws SQLException
     {
-        String update = "DELETE FROM Powerups WHERE PowerupID = ?";
+        String update = "DELETE FROM powerup WHERE powerupID = ?";
         PreparedStatement stmt = db.getPreparedStatement(update);
         stmt.setString(1, id);
         db.executeUpdate(stmt);
@@ -69,7 +79,7 @@ public class PowerUpDao {
     // clear the Powerup table
     public static void clear() throws SQLException
     {
-        String update = "DELETE FROM Powerups";
+        String update = "DELETE FROM powerup";
         db.executeUpdate(db.getPreparedStatement(update));
     }
 }
