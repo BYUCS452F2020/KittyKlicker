@@ -152,6 +152,7 @@ public class LoginFragment
             client.setKittyPower(1);  // response.getUser().getKittyPower()
             client.setPowerups(response.getPowerups());
             client.setTeamName(response.getTeam().getTeamID());
+            client.setTeamMotto(response.getTeam().getMotto());
             ((MainActivity) getActivity()).onLoginComplete();
         }
     }

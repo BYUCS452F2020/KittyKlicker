@@ -15,6 +15,7 @@ public class KittyClient {
     private String userID;
     private String authToken;
     private String teamName;
+    private String teamMotto;
     private int kittiesKlicked;
     private int kittyPower;
     private List<PowerUp> powerups;
@@ -23,6 +24,7 @@ public class KittyClient {
         userID = null;
         authToken = null;
         teamName = null;
+        teamMotto = null;
         kittiesKlicked = 0;
         kittyPower = 0;//todo: check that this is correct for starting
         powerups = null;
@@ -40,6 +42,7 @@ public class KittyClient {
         userID = null;
         authToken = null;
         teamName = null;
+        teamMotto = null;
         kittiesKlicked = 0;
         kittyPower = 0;//todo: check that this is correct for starting
         powerups = null;
@@ -73,8 +76,16 @@ public class KittyClient {
         return teamName;
     }
 
+    public String getTeamMotto() {
+        return teamMotto;
+    }
+
     public void setTeamName(String teamName) {
         this.teamName = teamName;
+    }
+
+    public void setTeamMotto(String teamMotto) {
+        this.teamMotto = teamMotto;
     }
 
     public int getKittiesKlicked() {

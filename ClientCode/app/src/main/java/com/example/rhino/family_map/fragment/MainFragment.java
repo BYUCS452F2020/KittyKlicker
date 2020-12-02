@@ -1,5 +1,7 @@
 package com.example.rhino.family_map.fragment;
 
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.Icon;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -23,6 +25,7 @@ import java.util.Vector;
 import model.client.KittyClient;
 import model.request.KlickRequest;
 import model.response.KlickResponse;
+import model.server.PowerUp;
 
 public class MainFragment extends Fragment implements KlickTask.KlickListener {
 
@@ -38,7 +41,6 @@ public class MainFragment extends Fragment implements KlickTask.KlickListener {
     private ImageView p4;
     private ImageView p5;
     private KittyClient client;
-    private KlickRequest klickRequest;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -50,8 +52,16 @@ public class MainFragment extends Fragment implements KlickTask.KlickListener {
 
         username = view.findViewById(R.id.kitty_user);
         username.setText(client.getUserID());
+
         teamName = view.findViewById(R.id.team);
         teamName.setText(client.getTeamName());
+        teamName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showToast(client.getTeamMotto());
+            }
+        });
+
         grumpyCat = view.findViewById(R.id.kitty_image);
         grumpyCat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,10 +69,13 @@ public class MainFragment extends Fragment implements KlickTask.KlickListener {
                 catClicked();
             }
         });
+
         score = view.findViewById(R.id.score);
         score.setText("Score: " + Integer.toString(client.getKittiesKlicked()));
+
         kittyPower = view.findViewById(R.id.kitty_power);
         kittyPower.setText("KittyPower: " + Integer.toString(client.getKittyPower()));
+
         powerups = view.findViewById(R.id.powerups);
 //        powerups.setText(client.getPowerups());
         p1 = view.findViewById(R.id.p1);
@@ -101,24 +114,33 @@ public class MainFragment extends Fragment implements KlickTask.KlickListener {
             }
         });
 
+        for (final PowerUp powerUp : client.getPowerups()) {
+            if (powerUp.getPowerUpName().equals("Newest Player")) {
+                p1.setImageResource(R.mipmap.ic_newest);
+                p1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showToast("Newest Player");
+                    }
+                });
+            }
+
+            System.out.println(powerUp.getPowerUpName());
+            System.out.println(powerUp.getBenefits());
+            System.out.println(powerUp.getRequirements());
+            System.out.println(powerUp.getUserID());
+        }
+
         return view;
     }
 
     private void catClicked() {
-//        System.out.println("cat clicked");
         KlickTask klickTask = new KlickTask(this);
         klickTask.execute(new KlickRequest(client.getAuthToken()));
-//        client.setKittiesKlicked(client.getKittiesKlicked()+client.getKittyPower());
-//        Toast toast = Toast.makeText(getActivity(), "+1", Toast.LENGTH_SHORT);
-//        toast.setGravity(Gravity.CENTER, 0, 0);
-//        toast.show();
-//        score.setText("Score: " + Integer.toString(client.getKittiesKlicked()));
-//        KlickResponse response = Proxy.Klick(new KlickRequest(client.getAuthToken()));
     }
 
     @Override
     public void onKlickComplete(KlickResponse response) {
-//        System.out.println("klick complete");
         client.setKittiesKlicked(response.getKittiesKlicked());
         Toast toast = Toast.makeText(getActivity(), "+1", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 0);
