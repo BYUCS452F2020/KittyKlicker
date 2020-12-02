@@ -1,5 +1,9 @@
 package response;
 
+import model.PowerUp;
+import model.Team;
+import model.User;
+
 import java.util.List;
 
 /**
@@ -8,22 +12,18 @@ import java.util.List;
 
 public class Login_RegisterResponse extends Response {
     private String authToken;
-    private String userID;
-    private String teamName;
-    private int kittiesKlicked;
-    private int kittyPower;
-    private List<String> powerups;
+    private User user;
+    private Team team;
+    private List<PowerUp> powerups;
 
     public Login_RegisterResponse(String message) {
         super(message);
     }
-    public Login_RegisterResponse(String authToken, String userID, String teamName, int kittiesKlicked, int kittyPower, List<String> powerups) {
-        super();
+
+    public Login_RegisterResponse(String authToken, User user, Team team, List<PowerUp> powerups) {
         this.authToken = authToken;
-        this.userID = userID;
-        this.teamName = teamName;
-        this.kittiesKlicked = kittiesKlicked;
-        this.kittyPower = kittyPower;
+        this.user = user;
+        this.team = team;
         this.powerups = powerups;
     }
 
@@ -35,51 +35,27 @@ public class Login_RegisterResponse extends Response {
         this.authToken = authToken;
     }
 
-    public String getUserName() {
-        return userID;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserName(String userID) {
-        this.userID = userID;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public String getTeamName() {
-        return teamName;
+    public Team getTeam() {
+        return team;
     }
 
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
+    public void setTeam(Team team) {
+        this.team = team;
     }
 
-    public int getKittiesKlicked() {
-        return kittiesKlicked;
-    }
-
-    public void setKittiesKlicked(int kittiesKlicked) {
-        this.kittiesKlicked = kittiesKlicked;
-    }
-
-    public int getKittyPower() {
-        return kittyPower;
-    }
-
-    public void setKittyPower(int kittyPower) {
-        this.kittyPower = kittyPower;
-    }
-
-    public List<String> getPowerups() {
+    public List<PowerUp> getPowerups() {
         return powerups;
     }
 
-    public void setPowerups(List<String> powerups) {
+    public void setPowerups(List<PowerUp> powerups) {
         this.powerups = powerups;
-    }
-
-    public String getUserID() {
-        return userID;
-    }
-
-    public void setUserID(String userID) {
-        this.userID = userID;
     }
 }
