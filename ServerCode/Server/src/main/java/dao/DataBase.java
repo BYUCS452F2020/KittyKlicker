@@ -54,7 +54,7 @@ public class DataBase {
         } catch (SQLException e) {
             if (conn != null) {
                 try {
-                    System.err.println("Transaction is being rolled back");
+                    System.err.println("Transaction is being rolled back: " + e.getMessage());
                     conn.rollback();
                 } catch (SQLException excep) {
                     System.err.println("Transaction cannot roll back");

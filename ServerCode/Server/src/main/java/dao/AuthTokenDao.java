@@ -1,10 +1,10 @@
 package dao;
 
+import model.AuthToken;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import model.AuthToken;
 
 /**
  * AuthToken Data Access Operator
@@ -35,7 +35,7 @@ public class AuthTokenDao {
         ResultSet r = db.executeQuery(stmt);
         if (r.next())
         {
-            auth = new AuthToken(r.getString("UserId"), r.getString("Token"));
+            auth = new AuthToken(r.getString("Username"), r.getString("Token"));
         }
 
         return auth;

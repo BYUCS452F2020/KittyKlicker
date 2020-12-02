@@ -101,14 +101,12 @@ public class UserDao {
         }
     }
 
-    private static void awardNewestPlayer(String userID)
-    {
+    private static void awardNewestPlayer(String userID) throws SQLException {
         try {
             // remove award from last newest player
-            String update = "DELETE FROM powerup WHERE userId = ? and powerupID = ?";
+            String update = "DELETE FROM powerup WHERE powerupID = ?";
             PreparedStatement stmt = db.getPreparedStatement(update);
-            stmt.setString(1, userID);
-            stmt.setString(2, NEWEST_PLAYER.getPowerUpName());
+            stmt.setString(1, NEWEST_PLAYER.getPowerUpName());
             db.executeUpdate(stmt);
 
             // add award to newest player
@@ -121,6 +119,7 @@ public class UserDao {
             db.executeUpdate(stmt2);
         } catch (Exception e) {
             System.err.println("Unable to award newest player: " + e.getMessage());
+            throw e;
         }
     }
 
