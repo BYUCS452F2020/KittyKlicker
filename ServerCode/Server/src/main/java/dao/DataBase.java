@@ -54,10 +54,10 @@ public class DataBase {
         } catch (SQLException e) {
             if (conn != null) {
                 try {
-                    System.err.print("Transaction is being rolled back");
+                    System.err.println("Transaction is being rolled back");
                     conn.rollback();
                 } catch (SQLException excep) {
-                    System.err.print("Transaction cannot roll back");
+                    System.err.println("Transaction cannot roll back");
                 }
             }
         }
