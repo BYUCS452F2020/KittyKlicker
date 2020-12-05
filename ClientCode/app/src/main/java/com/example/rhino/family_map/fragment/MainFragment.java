@@ -125,7 +125,12 @@ public class MainFragment extends Fragment implements KlickTask.KlickListener {
             }
         });
 
-        for (final PowerUp powerUp : client.getPowerups()) {
+        // newest player
+        // lowest score
+        // highest score
+        // longest username
+        // longest team name
+        for (PowerUp powerUp : client.getPowerups()) {
             if (powerUp.getPowerUpName().equals("Newest Player")) {
                 p1.setImageResource(R.mipmap.ic_newest);
                 p1.setOnClickListener(new View.OnClickListener() {
@@ -135,11 +140,47 @@ public class MainFragment extends Fragment implements KlickTask.KlickListener {
                     }
                 });
             }
+            else if (powerUp.getPowerUpName().equals("Lowest Score")) {
+                p2.setImageResource(R.mipmap.ic_lowest);
+                p2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showToast("Lowest Score");
+                    }
+                });
+            }
+            else if (powerUp.getPowerUpName().equals("Highest Score")) {
+                p3.setImageResource(R.mipmap.ic_most);
+                p3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showToast("Highest Score");
+                    }
+                });
+            }
+            else if (powerUp.getPowerUpName().equals("Longest Username")) {
+                p4.setImageResource(R.mipmap.ic_longest_name);
+                p4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showToast("Longest Username");
+                    }
+                });
+            }
+            else if (powerUp.getPowerUpName().equals("Longest Team Name")) {
+                p5.setImageResource(R.mipmap.ic_longest_team);
+                p5.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showToast("Longest Team Name");
+                    }
+                });
+            }
 
-            System.out.println(powerUp.getPowerUpName());
-            System.out.println(powerUp.getBenefits());
-            System.out.println(powerUp.getRequirements());
-            System.out.println(powerUp.getUserID());
+//            System.out.println(powerUp.getPowerUpName());
+//            System.out.println(powerUp.getBenefits());
+//            System.out.println(powerUp.getRequirements());
+//            System.out.println(powerUp.getUserID());
         }
 
         return view;
