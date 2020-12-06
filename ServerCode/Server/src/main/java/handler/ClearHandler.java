@@ -23,7 +23,7 @@ public class ClearHandler extends Handler {
 
         try
         {
-            if (exchange.getRequestMethod().toLowerCase().equals("post"))
+            if (exchange.getRequestMethod().toLowerCase().equals("get"))
             {
                 Response response = ClearService.clear();
 

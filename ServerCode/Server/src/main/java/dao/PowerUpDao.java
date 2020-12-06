@@ -36,7 +36,7 @@ public class PowerUpDao {
     public static final PowerUp LONGEST_TEAMNAME = new PowerUp(
             "Longest Team Name",
             "Youre team has the looooooooooooongest team name of anyone.'",
-            "You're team is the most special.",
+            "Your team is the most special.",
             null);
 
     private static DataBase db = DataBase.getInstance();

@@ -57,12 +57,14 @@ public class Proxy {
 
                 // Read response body
                 Login_RegisterResponse response = gson.fromJson(responseBody, Login_RegisterResponse.class);
+
+                connection.disconnect();
                 return response;
             }
         }
         catch (Exception e)
         {
-            Log.e("Klick", e.getMessage(), e);
+            Log.e("Login", e.getMessage(), e);
             return new Login_RegisterResponse(e.getMessage());
         }
 
@@ -89,12 +91,14 @@ public class Proxy {
 
                 // Read response body
                 Login_RegisterResponse response = gson.fromJson(responseBody, Login_RegisterResponse.class);
+
+                connection.disconnect();
                 return response;
             }
         }
         catch (Exception e)
         {
-            Log.e("Klick", e.getMessage(), e);
+            Log.e("Register", e.getMessage(), e);
             return new Login_RegisterResponse(e.getMessage());
         }
 
@@ -124,6 +128,8 @@ public class Proxy {
                 // Read response body
                 KlickResponse response = gson.fromJson(responseBody, KlickResponse.class);
 //                System.out.println("proxy end");
+
+                connection.disconnect();
                 return response;
             }
             else {
