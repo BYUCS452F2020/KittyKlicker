@@ -3,6 +3,7 @@ package service;
 import java.sql.SQLException;
 
 import dao.AuthTokenDao;
+import dao.CouchBaseDB;
 import dao.DataBase;
 import dao.UserDao;
 import request.KlickRequest;
@@ -34,7 +35,9 @@ public class KlickService {
             }
             db.openConnection();
 
+            CouchBaseDB.openConnection();
             Integer newScore = UserDao.klick(AuthTokenDao.find(request.getAuth()).getUsername());
+            CouchBaseDB.closeConnection();
 
             if (newScore == null) {
                 return new Response("User not found");

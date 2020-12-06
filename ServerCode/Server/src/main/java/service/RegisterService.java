@@ -1,9 +1,6 @@
 package service;
 
-import dao.DataBase;
-import dao.PowerUpDao;
-import dao.TeamDao;
-import dao.UserDao;
+import dao.*;
 import model.AuthToken;
 import model.PowerUp;
 import model.Team;
@@ -83,7 +80,9 @@ public class RegisterService {
            List<PowerUp> team_powerups = PowerUpDao.find(user.getTeamName());
            team_powerups.addAll(user_powerups);
 
+           CouchBaseDB.openConnection();
            AuthToken auth = AuthService.generate(user.getUserID());
+           CouchBaseDB.closeConnection();
 
            return new Login_RegisterResponse(auth.getToken(), user, team, team_powerups);
        }

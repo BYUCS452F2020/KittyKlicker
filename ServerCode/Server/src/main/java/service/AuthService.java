@@ -1,6 +1,8 @@
 package service;
 
+import com.couchbase.client.core.error.CouchbaseException;
 import dao.AuthTokenDao;
+import dao.CouchBaseDB;
 import dao.DataBase;
 import model.AuthToken;
 
@@ -28,7 +30,7 @@ public class AuthService
     {
         try
         {
-            db.openConnection();
+            CouchBaseDB.openConnection();
             return AuthTokenDao.validate(token);
         }
         catch (SQLException e)
@@ -39,9 +41,9 @@ public class AuthService
         {
             try
             {
-                db.closeConnection(true);
+                CouchBaseDB.closeConnection();
             }
-            catch (SQLException e)
+            catch (CouchbaseException e)
             {
                 return false;
             }
