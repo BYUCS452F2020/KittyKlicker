@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import static dao.PowerUpDao.LONGEST_TEAMNAME;
+
 /**
  * Team Data Access Operator
  */
@@ -47,13 +49,62 @@ public class TeamDao {
      */
     public static boolean insert(Team team) throws SQLException
     {
+        int ltn = getLongestTeamName();
+
         String update = "INSERT INTO team (teamId, motto, totalKittiesKlicked) VALUES (?, ?, ?)";
         PreparedStatement stmt = db.getPreparedStatement(update);
         stmt.setString(1, team.getTeamID());
         stmt.setString(2, team.getMotto());
         stmt.setInt(3, team.getTotalKittiesKlicked());
         db.executeUpdate(stmt);
+
+        if (team.getTeamID().length() > ltn)
+        {
+            awardLongestTeamName(team.getTeamID());
+        }
         return false;
+    }
+
+    private static int getLongestTeamName() {
+        try {
+            String update = "SELECT LENGTH(teamID) Team_Length FROM team order by Team_Length DESC LIMIT 1";
+            PreparedStatement stmt = db.getPreparedStatement(update);
+            ResultSet r = db.executeQuery(stmt);
+            if (r.next())
+            {
+                return r.getInt("Team_Length");
+            }
+            else
+            {
+                return 0;
+            }
+
+        } catch (Exception e) {
+            System.err.println("Unable get longest team name");
+            return 0;
+        }
+    }
+
+    private static void awardLongestTeamName(String userID) throws SQLException {
+        try {
+            // remove award from last newest player
+            String update = "DELETE FROM powerup WHERE powerupID = ?";
+            PreparedStatement stmt = db.getPreparedStatement(update);
+            stmt.setString(1, LONGEST_TEAMNAME.getPowerUpName());
+            db.executeUpdate(stmt);
+
+            // add award to newest player
+            String update2 = "INSERT INTO powerup (powerupID, requirements, benefits, userID) VALUES (?, ?, ?, ?)";
+            PreparedStatement stmt2 = db.getPreparedStatement(update2);
+            stmt2.setString(1, LONGEST_TEAMNAME.getPowerUpName());
+            stmt2.setString(2, LONGEST_TEAMNAME.getRequirements());
+            stmt2.setString(3, LONGEST_TEAMNAME.getBenefits());
+            stmt2.setString(4, userID);
+            db.executeUpdate(stmt2);
+        } catch (Exception e) {
+            System.err.println("Unable to award longest team name: " + e.getMessage());
+            throw e;
+        }
     }
 
     /**

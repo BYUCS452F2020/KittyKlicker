@@ -62,11 +62,13 @@ public class LoginService {
 
             Team team = TeamDao.find(user.getTeamName());
 
-            List<PowerUp> powerups = PowerUpDao.find(user.getUserID());
+            List<PowerUp> user_powerups = PowerUpDao.find(user.getUserID());
+            List<PowerUp> team_powerups = PowerUpDao.find(user.getTeamName());
+            team_powerups.addAll(user_powerups);
 
             AuthToken auth = AuthService.generate(username);
 
-            return new Login_RegisterResponse(auth.getToken(), user, team, powerups);
+            return new Login_RegisterResponse(auth.getToken(), user, team, team_powerups);
         }
         catch (SQLException e)
         {

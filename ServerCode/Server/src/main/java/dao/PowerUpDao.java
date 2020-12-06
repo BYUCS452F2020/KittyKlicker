@@ -15,8 +15,28 @@ public class PowerUpDao {
 
     public static final PowerUp NEWEST_PLAYER = new PowerUp(
             "Newest Player",
-            "You are the most recent person to make a Kitty Klicker account",
-            "You are special",
+            "You are the most recent person to make a Kitty Klicker account.",
+            "You are special.",
+            null);
+    public static final PowerUp LOWEST_SCORE = new PowerUp(
+            "Lowest Score",
+            "You have the lowest score of anyone that has ever played Kitty Klicker, wow.",
+            "+1 Klicking Power! Stick it to the man!",
+            null);
+    public static final PowerUp HIGHEST_SCORE = new PowerUp(
+            "Highest Score",
+            "You have the highest score! You're top dawg!",
+            "You are so talented.",
+            null);
+    public static final PowerUp LONGEST_USERNAME = new PowerUp(
+            "Longest Username",
+            "You have the loooooooooongest username of anyone.",
+            "You are sooooo special.",
+            null);
+    public static final PowerUp LONGEST_TEAMNAME = new PowerUp(
+            "Longest Team Name",
+            "Youre team has the looooooooooooongest team name of anyone.'",
+            "You're team is the most special.",
             null);
 
     private static DataBase db = DataBase.getInstance();
@@ -28,7 +48,7 @@ public class PowerUpDao {
     }
 
     /**
-     * check to see if a user has any powerups in the database
+     * check to see if a user or team has any powerups in the database
      * @return the powerup object found, otherwise null
      */
     public static List<PowerUp> find(String id) throws SQLException

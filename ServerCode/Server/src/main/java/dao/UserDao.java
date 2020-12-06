@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import static dao.PowerUpDao.NEWEST_PLAYER;
+import static dao.PowerUpDao.*;
 
 /**
  * UserDao Data Access Operator
@@ -60,6 +60,19 @@ public class UserDao {
             stmt.setInt(1, newScore);
             stmt.setString(2, id);
             db.executeUpdate(stmt);
+
+            int ls = getLowestScore();
+            if (newScore < ls)
+            {
+                awardLowestScore(user.getUserID());
+            }
+
+            int hs = getHighestScore();
+            if (newScore > hs)
+            {
+                awardHighestScore(user.getUserID());
+            }
+
             return newScore;
         }
 
@@ -84,6 +97,8 @@ public class UserDao {
     public static boolean insert(User user)
     {
         try {
+            int lun = getLongestUsername();
+
             String update = "INSERT INTO user (userID, password, kittiesKlicked, kittiesPerKlick, teamID) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement stmt = db.getPreparedStatement(update);
             stmt.setString(1, user.getUserID());
@@ -94,10 +109,122 @@ public class UserDao {
             db.executeUpdate(stmt);
 
             awardNewestPlayer(user.getUserID());
+
+            if (user.getUserID().length() > lun)
+            {
+                awardLongestUsername(user.getUserID());
+            }
+
             return true;
         } catch (Exception e) {
             System.err.println("Unable to insert user");
             return false;
+        }
+    }
+
+    private static int getLowestScore() throws SQLException {
+        try {
+            String update = "SELECT kittiesKlicked FROM user order by kittiesKlicked ASC LIMIT 1";
+            PreparedStatement stmt = db.getPreparedStatement(update);
+            ResultSet r = db.executeQuery(stmt);
+            if (r.next())
+            {
+                return r.getInt("kittiesKlicked");
+            }
+            else
+            {
+                return 0;
+            }
+
+        } catch (Exception e) {
+            System.err.println("Unable get lowest score");
+            return 0;
+        }
+    }
+
+    private static int getHighestScore() throws SQLException {
+        try {
+            String update = "SELECT kittiesKlicked FROM user order by kittiesKlicked DESC LIMIT 1";
+            PreparedStatement stmt = db.getPreparedStatement(update);
+            ResultSet r = db.executeQuery(stmt);
+            if (r.next())
+            {
+                return r.getInt("kittiesKlicked");
+            }
+            else
+            {
+                return 0;
+            }
+
+        } catch (Exception e) {
+            System.err.println("Unable get highest score");
+            return 0;
+        }
+    }
+
+    private static int getLongestUsername() throws SQLException {
+        try {
+            String update = "SELECT LENGTH(userID) User_Length FROM user order by User_Length DESC LIMIT 1";
+            PreparedStatement stmt = db.getPreparedStatement(update);
+            ResultSet r = db.executeQuery(stmt);
+            if (r.next())
+            {
+                return r.getInt("User_Length");
+            }
+            else
+            {
+                return 0;
+            }
+
+        } catch (Exception e) {
+            System.err.println("Unable get longest username");
+            return 0;
+        }
+    }
+
+
+
+    private static void awardLowestScore(String userID) throws SQLException {
+        try {
+            // remove award from last newest player
+            String update = "DELETE FROM powerup WHERE powerupID = ?";
+            PreparedStatement stmt = db.getPreparedStatement(update);
+            stmt.setString(1, LOWEST_SCORE.getPowerUpName());
+            db.executeUpdate(stmt);
+
+            // add award to newest player
+            String update2 = "INSERT INTO powerup (powerupID, requirements, benefits, userID) VALUES (?, ?, ?, ?)";
+            PreparedStatement stmt2 = db.getPreparedStatement(update2);
+            stmt2.setString(1, LOWEST_SCORE.getPowerUpName());
+            stmt2.setString(2, LOWEST_SCORE.getRequirements());
+            stmt2.setString(3, LOWEST_SCORE.getBenefits());
+            stmt2.setString(4, userID);
+            db.executeUpdate(stmt2);
+        } catch (Exception e) {
+            System.err.println("Unable to award lowest score: " + e.getMessage());
+            throw e;
+        }
+    }
+
+    private static void awardHighestScore(String userID) throws SQLException {
+        try {
+            // remove award from last newest player
+            String update = "DELETE FROM powerup WHERE powerupID = ?";
+            PreparedStatement stmt = db.getPreparedStatement(update);
+            stmt.setString(1, HIGHEST_SCORE.getPowerUpName());
+            db.executeUpdate(stmt);
+
+            // add award to newest player
+            String update2 = "INSERT INTO powerup (powerupID, requirements, benefits, userID) VALUES (?, ?, ?, ?)";
+            PreparedStatement stmt2 = db.getPreparedStatement(update2);
+            stmt2.setString(1, HIGHEST_SCORE.getPowerUpName());
+            stmt2.setString(2, HIGHEST_SCORE.getRequirements());
+            stmt2.setString(3, HIGHEST_SCORE.getBenefits());
+            stmt2.setString(4, userID);
+            db.executeUpdate(stmt2);
+        } catch (Exception e) {
+            System.err.println("Unable to award highest score: " + e.getMessage());
+            throw e;
         }
     }
 
@@ -119,6 +246,28 @@ public class UserDao {
             db.executeUpdate(stmt2);
         } catch (Exception e) {
             System.err.println("Unable to award newest player: " + e.getMessage());
+            throw e;
+        }
+    }
+
+    private static void awardLongestUsername(String userID) throws SQLException {
+        try {
+            // remove award from last newest player
+            String update = "DELETE FROM powerup WHERE powerupID = ?";
+            PreparedStatement stmt = db.getPreparedStatement(update);
+            stmt.setString(1, LONGEST_USERNAME.getPowerUpName());
+            db.executeUpdate(stmt);
+
+            // add award to newest player
+            String update2 = "INSERT INTO powerup (powerupID, requirements, benefits, userID) VALUES (?, ?, ?, ?)";
+            PreparedStatement stmt2 = db.getPreparedStatement(update2);
+            stmt2.setString(1, LONGEST_USERNAME.getPowerUpName());
+            stmt2.setString(2, LONGEST_USERNAME.getRequirements());
+            stmt2.setString(3, LONGEST_USERNAME.getBenefits());
+            stmt2.setString(4, userID);
+            db.executeUpdate(stmt2);
+        } catch (Exception e) {
+            System.err.println("Unable to award longest username: " + e.getMessage());
             throw e;
         }
     }
