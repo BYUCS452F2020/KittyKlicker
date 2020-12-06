@@ -130,13 +130,13 @@ public class MainFragment extends Fragment implements KlickTask.KlickListener {
         // highest score
         // longest username
         // longest team name
-        for (PowerUp powerUp : client.getPowerups()) {
+        for (final PowerUp powerUp : client.getPowerups()) {
             if (powerUp.getPowerUpName().equals("Newest Player")) {
                 p1.setImageResource(R.mipmap.ic_newest);
                 p1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        showToast("Newest Player");
+                        showToast(powerUp.getPowerUpName()+"\n"+powerUp.getBenefits());
                     }
                 });
             }
@@ -145,7 +145,7 @@ public class MainFragment extends Fragment implements KlickTask.KlickListener {
                 p2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        showToast("Lowest Score");
+                        showToast(powerUp.getPowerUpName()+"\n"+powerUp.getBenefits());
                     }
                 });
             }
@@ -154,7 +154,7 @@ public class MainFragment extends Fragment implements KlickTask.KlickListener {
                 p3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        showToast("Highest Score");
+                        showToast(powerUp.getPowerUpName()+"\n"+powerUp.getBenefits());
                     }
                 });
             }
@@ -163,7 +163,7 @@ public class MainFragment extends Fragment implements KlickTask.KlickListener {
                 p4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        showToast("Longest Username");
+                        showToast(powerUp.getPowerUpName()+"\n"+powerUp.getBenefits());
                     }
                 });
             }
@@ -172,7 +172,7 @@ public class MainFragment extends Fragment implements KlickTask.KlickListener {
                 p5.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        showToast("Longest Team Name");
+                        showToast(powerUp.getPowerUpName()+"\n"+powerUp.getBenefits());
                     }
                 });
             }
